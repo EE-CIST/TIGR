@@ -1,0 +1,186 @@
+---
+title: Introduction
+# subtitle: Présentation des modules de formations TIG'R
+bibliography: biblio/tigr.bib
+nocite: '@*'
+# csl: geo.csl
+---
+
+::: column-margin
+<a href="http://localhost:6276/" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode">![](img/logo.png){width="50%"}</a>
+:::
+
+Les différentes leçons peuvent être utilisées indépendamment les unes des autres. Il est néanmoins nécessaire de connaître les bases du langage R (objets, opérateurs, fonctions...) pour comprendre les différents cours et exercices proposés.
+
+Si vous êtes débutant·e, plusieurs supports libres et gratuits d'initiation à R sont indiqués dans les [ressources annexes](ressources.qmd). Si vous êtes enseignant·e, vous pouvez également utilisés ces deux diaporamas d'introduction au langage R :
+
+<iframe class="slidintro" width="100%" height="480px" style="margin-bottom:0px;" src="https://elementr.gitpages.huma-num.fr/session_1/Presentation_R/#/">
+
+</iframe>
+
+<center style="font-size:80%;">
+
+Consulter en [**plein écran**](https://elementr.gitpages.huma-num.fr/session_1/Presentation_R/#/)
+
+</center>
+
+\
+
+<iframe class="slidintro" width="100%" height="480px" style="margin-bottom:0px;" src="https://huguespecout.github.io/Intro_R_Rstudio_FR/#/">
+
+</iframe>
+
+<center style="font-size:80%;">
+
+Consulter en [**plein écran**](https://huguespecout.github.io/Intro_R_Rstudio_FR/#/)   
+
+</center>
+
+:::callout-note
+## Installer R et Rstudio
+Téléchargez R et Rstudio depuis le site de Posit : <https://posit.co/download/rstudio-desktop/>     
+Puis, suivez les instructions d'installation (classiques) 
+:::
+
+### Les modules thématiques
+
+Les leçons TIG'R sont classées en huit modules thématiques qui segmentent l'ensemble de la chaîne de traitement de données géographiques :
+
+-   [**Données**](modules/import.qmd) (Import, collecte , connexion BD... et export de données)
+-   [**Manipulation de données**](modules/manipulation.qmd) (gestion & traitement de données)
+-   [**Statistique descriptives**](modules/statistique.qmd) (uni, bi et multivariée)
+-   [**Représentation graphique**](modules/graphique.qmd) (R-base & ggplot2)
+-   [**Analyse de réseau**](modules/reseau.qmd) (Théotire de graphes et analyse de réseau)
+-   [**Géomatique**](modules/geomatique.qmd) (traitement des données vectorielles et raster)
+-   [**Cartographie thématique**](modules/cartographie.qmd) (statique et interactive)
+-   [**Reproductibilité**](modules/reproductibilite.qmd) (Bonnes pratiques pour la recherche reproductible)
+
+### Les packages utilisés
+
+Afin de maximiser la reproductibilité des traitements présentés, les différents modules de formation tentent de minimiser les dépendances à des packages. Les différents packages utilisés sont généralement des références dans la communauté R et laisser présager une certaine stabilité du code présenté.
+
+Les packages utilisés dans les différents modules thématiques sont :
+
+-   [readxl](https://readxl.tidyverse.org/)
+-   [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html)
+-   [haven](https://haven.tidyverse.org/)
+-   [dplyr](https://dplyr.tidyverse.org/)
+-   [lubridate](https://lubridate.tidyverse.org/)
+-   [stringr](https://stringr.tidyverse.org/)
+-   [FactoMineR](http://factominer.free.fr/index_fr.html)
+-   [ggplot2](https://ggplot2.tidyverse.org/)
+-   [igraph](https://r.igraph.org/)
+-   [sf](https://r-spatial.github.io/sf/)
+-   [terra](https://rspatial.org/index.html)
+-   [mapsf](https://riatelab.github.io/mapsf/index.html)
+-   [leaflet](https://rstudio.github.io/leaflet/)
+-   [mapview](https://r-spatial.github.io/mapview/)
+-   [maptiles](https://rgeomatic.hypotheses.org/2032)
+-   [osmdata](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
+-   [osmextract](https://docs.ropensci.org/osmextract/)
+-   [osrm](https://rgeomatic.hypotheses.org/category/osrm)
+-   [rmarkdown](https://rmarkdown.rstudio.com/)
+-   [knitr](https://yihui.org/knitr/)
+-   [miniCRAN](http://andrie.github.io/miniCRAN/)
+
+
+
+#### Installation
+
+```{r, eval = FALSE}
+
+# Liste des packages à installer
+packages <- c("readxl", "openxlsx", "haven",
+              "dplyr", "lubridate", "stringr",
+              "ggplot2", "FactoMineR", "sf",
+              "terra", "mapsf", "rmarkdown", "knitr", "...")
+
+
+# Détection de package à installer
+missing_packages <- packages [!(packages  %in% installed.packages()[,"Package"])]
+
+# Installation des packages manquants
+if(length(missing_packages)) install.packages(missing_packages)
+
+
+```
+
+### Le miniCRAN
+
+Afin de pouvoir reproduire les différentes leçons sans être dépendant d'une connexion internet, un [miniCRAN](modules/reproductibilite/minicran.qmd) (répertoire contenant les sources de l'ensemble des packages) est mis à disposition :
+
+::: center
+<a href="https://bit.ly/3y0SKdT" class="btn btn-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Télécharger le miniCRAN</a>
+:::
+
+Une fois le répertoire décompressé, vous pouvez installer les différents packages en local de la manière suivante :
+
+```{r eval = FALSE, echo = TRUE}
+
+# Chemin d'accès jusqu'au répertoire "miniCRAN" copié sur votre machine.
+URL_dossier <- paste0("file:///", "C:/Users/<username>/.../", "miniCRAN")
+
+# Installation de ggplot2 depuis la source (répertoire miniCRAN)
+install.packages("ggplot2", 
+                 repos = URL_dossier,
+                 type = "source")
+
+```
+
+::: callout-note
+Modifier "*C:/Users/username/.../*" par le chemin d'accès correct.
+:::
+
+```{r eval = FALSE, echo = FALSE, include = FALSE }
+
+# install.packages("miniCRAN")
+library("miniCRAN")
+
+# Path to target folder
+Mon_dossier <- "miniCRAN"
+
+# Make repo for source and win.binary
+makeRepo(pkgDep(packages), path = Mon_dossier)
+
+# Add new packages (from CRAN) to the miniCRAN repo
+addPackage("mapview", path = Mon_dossier, type = c("source", "win.binary"))
+
+
+# List all files in miniCRAN
+list.files(Mon_dossier, recursive = TRUE, full.names = FALSE)
+
+# Check for available packages
+pkgAvail(repos = Mon_dossier, type = "win.binary")[, c(1:3, 5)]
+
+
+# install.packages("ggplot2", 
+#                  repos = paste0("file:///","/home/hugues/Bureau/Modules_R/miniCRAN"),
+#                  type = "source")
+
+# file <- "miniCRAN.zip"
+# zip(zipfile = file , 
+#     files = "/home/hugues/Documents/5.Cours/Modules_R/miniCRAN/")
+
+```
+
+### Les données utilisées
+
+Les différents jeux de données utilisés dans les modules sont présentés et mis à disposition sur [cette page](data.qmd).
+
+### Conditions d'utilisation
+
+Le contenu de ce site web (support de cours et exercice inclus) est soumis à la [Licence ouverte V2.0 d'Etalab](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf). Le « Réutilisateur » est **libre de réutiliser l' « Information »** :
+
+-   de la reproduire, la copier,\
+-   de l'adapter, la modifier, l'extraire et la transformer, pour créer des « Informations dérivées », des produits ou des services,\
+-   de la communiquer, la diffuser, la redistribuer, la publier et la transmettre,\
+-   de l'exploiter à titre commercial, par exemple en la combinant avec d'autres informations, ou en l'incluant dans son propre produit ou application.
+
+**Sous réserve de :**
+
+-   mentionner la paternité de l' « Information » : sa source (cf. [citation](#citation) et la date de dernière mise à jour de l' « Information » réutilisée.
+
+### Citation TIG'R
+
+::: {#refs}
+:::

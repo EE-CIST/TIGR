@@ -1,0 +1,29 @@
+---
+title: "Données"
+subtitle: "Import, collecte , connexion BD..."
+image : img/import.png
+listing: 
+  id: import
+  contents : import
+  sort: "ordre asc"
+  fields: [date, author, title]
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+ordre: 01
+---
+
+::: column-margin
+![](img/import.png){width="50%"}
+:::
+
+::: {#import}
+:::
+
+</br>
+
+::: center
+Revenir à la [page d'acceuil des modules](/modules.qmd)
+:::

@@ -1,0 +1,29 @@
+---
+title: "Cartographie"
+subtitle: "Cartographie thématique"
+image: img/map.png
+listing: 
+  id : cartographie
+  contents : cartographie
+  sort: "ordre asc"
+  fields: [date, author, title]
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+ordre: 08
+---
+
+::: column-margin
+![](img/map.png){width="50%"}
+:::
+
+::: {#cartographie}
+:::
+
+</br>
+
+::: center
+Revenir à la [page d'acceuil des modules](/modules.qmd)
+:::

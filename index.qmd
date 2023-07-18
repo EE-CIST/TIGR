@@ -1,0 +1,20 @@
+---
+title: |
+  <h1 class="first">TIG'R</h1>
+subtitle: |
+  <h2 class="second">**T**raitement de l'**I**nformation **G**éographique avec **R**</h2>
+---
+
+::: column-margin
+<a href="http://localhost:6276/" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode">![](img/logo.png){width="70%"}</a>
+:::
+
+**TIG'R est une ressource d'apprentissage pour le traitement de l'information géographique avec R**. Ce site a été crée dans le cadre de l'école thématique [Méthodes et outils de sciences territoriales](https://ee2023.netlify.app/) organisée par le [Collègue Internationnal des Sciences Territoriales](https://cist.cnrs.fr/) et qui s'est déroulée à Ouidah (Bénin) en Mars 2023.
+
+Ce site contient des **supports de cours et exercices reproductibles** qui tente de couvrir l'ensemble de la chaîne de traitement de données géographiques.
+
+L'ensemble du matériel mis à disposition est soumis à la [Licence ouverte V2.0 d'Etalab](https://www.etalab.gouv.fr/licence-ouverte-open-licence/).
+
+::: {style="text-align:center;margin-top:50px"}
+![](img/R.png){width="15%"} ![](img/geolocalisation.png){width="15%" style="margin-left:100px"} ![](img/etalab.gif){width="8%" style="margin-left:100px;margin-top:5px;"}
+:::

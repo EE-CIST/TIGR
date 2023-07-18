@@ -1,0 +1,19 @@
+---
+title: "Modules thématiques"
+subtitle: "Chaque module comprend au moins un cours et un exercice pratique"
+listing: 
+  contents : 
+   - "modules/*.qmd"
+  sort: "ordre asc"
+  fields: [image, title, subtitle]
+  type: grid
+  image-height: 100%
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+---
+
+::: column-margin
+![](img/modules.png){width="50%"}
+:::

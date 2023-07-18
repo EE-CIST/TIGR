@@ -1,0 +1,29 @@
+---
+title: "Graphique"
+subtitle: "Représentation graphique"
+image : img/graph.png
+listing: 
+  id: graphique
+  contents : graphique
+  sort: "ordre asc"
+  fields: [date, author, title]
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+ordre: 05
+---
+
+::: column-margin
+![](img/import.png){width="50%"}
+:::
+
+::: {#graphique}
+:::
+
+</br>
+
+::: center
+Revenir à la [page d'acceuil des modules](/modules.qmd)
+:::

@@ -1,0 +1,29 @@
+---
+title: "Géomatique"
+subtitle: "Traitement données vecteur et raster"
+image : img/geomatic2.png
+listing: 
+  id : geomatique
+  contents : geomatique
+  sort: "ordre asc"
+  fields: [date, author, title]
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+ordre: 07
+---
+
+::: column-margin
+![](img/geomatic2.png){width="50%"}
+:::
+
+::: {#geomatique}
+:::
+
+</br>
+
+::: center
+Revenir à la [page d'acceuil des modules](/modules.qmd)
+:::

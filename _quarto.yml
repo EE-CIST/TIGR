@@ -1,0 +1,170 @@
+project:
+  type: website
+lang: fr
+website:
+  title: TIG'R
+  favicon: img/tigr2.png
+  twitter-card: true
+  site-url: https://tigr.netlify.app/
+  description: "Modules de formation pour le traitement de l'information géographique avec R"
+  page-navigation: true
+  search:
+    location: sidebar
+
+  sidebar:
+    style: "docked"
+    collapse-level: 1
+    contents:
+    
+      - text: "**Introduction**"
+        href: presentation.qmd
+        
+      - text: "---"
+    
+
+      - section: "**Import de données**"
+        contents:
+          - href: modules/import.qmd
+            text: Toutes les leçons
+          - href: modules/import/import.qmd
+            text: Import & export
+          - href: modules/import/scraping.qmd
+            text: Web Scraping
+          # - href: modules/import/api.qmd
+          #   text: Package & API
+          # - href: modules/import/connectBD.qmd
+          #   text: Connexion BD
+          # - href: modules/import/osm.qmd
+          #   text: OpenStreetMap
+          # - href: modules/import/scraping.qmd 
+          #   text: Web scraping
+            
+      - section: "**Manipulation**"
+        contents:
+          - href: modules/manipulation.qmd
+            text: Toutes les leçons
+          - href: modules/manipulation/manipulation.qmd
+            text: Manipulation de tableau
+          - href: modules/manipulation/tidyverse.qmd
+            text: L'écosystème `tidyverse`
+          # - href: modules/manipulation/datatable.qmd
+          #   text: Le package `data.table`
+          # - href: modules/manipulation/tidyverse.qmd 
+          #   text: Le package `tidyverse`
+
+
+      - section: "**Statistique**"
+        contents:
+          - href: modules/statistique.qmd
+            text: Toutes les leçons
+          # - href: modules/statistique/statistique_uni.qmd
+          #   text: Univariée
+          # - href: modules/statistique/statistique_bi.qmd
+          #   text: Bivariée
+          # - href: modules/statistique/statistique_multi.qmd
+          #   text: Multivariée
+          
+          
+      - section: "**Graphique**"
+        contents:
+          - href: modules/graphique.qmd
+            text: Toutes les leçons
+          - href: modules/graphique/Rbase_graph.qmd
+            text: Graphique R-base
+          - href: modules/graphique/ggplot2.qmd
+            text: Graphique avec `ggplot2`
+            
+      - section: "**Réseau**"
+        contents:
+          - href: modules/network.qmd
+            text: Toutes les leçons
+          - href: modules/reseau/igraph.qmd
+            text: Réseau avec igraph
+
+          
+      - section: "**Géomatique**"
+        contents:
+          - href: modules/geomatique.qmd
+            text: Toutes les leçons
+          - href: modules/geomatique/geomatic_vector.qmd
+            text: Données vectorielles
+          - href: modules/geomatique/geomatic_raster.qmd
+            text: Données Raster
+          - href: modules/geomatique/OpenStreetMap.qmd
+            text: OpenStreetMap & R
+            
+      - section: "**Cartographie**"
+        contents:
+          - href: modules/cartographie.qmd
+            text: Toutes les leçons
+          - href: modules/cartographie/map_sf.qmd
+            text: Cartographie `mapsf`
+          # - href: modules/cartographie/map_dyn.qmd
+          #   text: Cartographie dynamique              
+            
+          
+      - section: "**Reproductibilité**"
+        contents:
+          - href: modules/reproductibilite.qmd
+            text: Toutes les leçons
+          - href: modules/reproductibilite/minicran.qmd
+            text: Le package `miniCRAN`
+          # - href: modules/reproductibilite/renv.qmd
+          #   text: Le package `renv`
+          - href: modules/reproductibilite/programmation_lettree.qmd
+            text: PL et Notebook
+          # - href: modules/reproductibilite/notebook.qmd
+          #   text: Les notebooks  
+
+            
+      - text: "---"
+      
+      - text:  "**Données utilisées**"
+        href: data.qmd
+      
+      - text: "**Ressources annexes**"
+        href: ressources.qmd
+            
+  navbar:
+    background: "#2a8cbe"
+    left: 
+      - text: Introduction 
+        href: presentation.qmd
+      # - text: Packages
+      #   href: packages.qmd
+      - text: Modules
+        href: modules.qmd 
+      - text: Données 
+        href: data.qmd
+      - text: Ressources
+        href: ressources.qmd
+
+        
+    right:    
+      - href: about.qmd
+        text: Crédits
+        
+    tools:
+      - icon: github
+        aria-label: GitHub
+        text: GitHub
+        href: https://github.com/HuguesPecout/Modules_R
+        
+
+  page-footer:  Ecole d'été CIST·2023 - [![licensebuttons by-sa](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0) - Ouidah, Bénin 
+  # margin-header: |
+  #   ![](img/logo.png){width="90%"}
+  
+format:
+  html:
+    theme: 
+      light: Cosmo
+      dark: cyborg
+    css: styles.css
+    toc: true
+    page-layout: full
+
+editor: visual
+  
+  
+

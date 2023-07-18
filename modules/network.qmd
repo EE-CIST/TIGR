@@ -1,0 +1,29 @@
+---
+title: "Réseau"
+subtitle: "Analyse de réseau et théorie des graphes"
+image : img/network.png
+listing: 
+  id : reseau
+  contents : reseau
+  sort: "ordre asc"
+  fields: [date, author, title]
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+ordre: 06
+---
+
+::: column-margin
+![](img/network.png)
+:::
+
+::: {#reseau}
+:::
+
+</br>
+
+::: center
+Revenir à la [page d'acceuil des modules](/modules.qmd)
+:::

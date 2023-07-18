@@ -1,0 +1,52 @@
+---
+title: "Programmation lettrée et notebook"
+subtitle: "Introduction et mise en pratique avec Rmarkdown"
+ordre: 02
+author: Hugues Pecout
+date: last-modified
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   colorlinks: true
+  #   output-file: "miniCRAN"
+  #   output-ext:  "pdf"
+---
+
+## Introduction
+
+Présentation du paradigme de programmation lettrée et du format de publication *notebook*, qui offre de nombreuses fonctionnalités pour de nombreux usages.
+
+<iframe class="slide" src="https://ee-cist.github.io/OUT1_NotebookR/">
+
+</iframe>
+
+→ Consulter en [plein écran](https://ee-cist.github.io/OUT1_NotebookR/)\
+→ Accéder au [code source](https://github.com/EE-CIST/OUT1_NotebookR/)\
+<!-- → Télécharger en [pdf](https://github.com/EE-CIST/OUT1_NotebookR/raw/main/PL_et_notebook.pdf)\ -->
+
+## Le Rmarkdown
+
+<iframe class="slide2" src="https://ee-cist.github.io/OUT1_Rmarkdown/">
+
+</iframe>
+
+→ Consulter en [plein écran](https://ee-cist.github.io/OUT1_Rmarkdown/)\
+→ Accéder au [code source](https://github.com/EE-CIST/OUT1_Rmarkdown/)\
+<!-- → Télécharger en [pdf]()\ -->
+
+\
+
+## <i class="bi bi-person-workspace"></i> Exercice {.title .exo-title}
+
+::: {#exo}
+
+
+:::
+
+\

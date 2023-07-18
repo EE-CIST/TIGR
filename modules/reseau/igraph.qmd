@@ -1,0 +1,48 @@
+---
+title: "Analyse de réseau avec `igraph`"
+subtitle: "Présentation et fonctionnement du package `igraph` "
+author: 
+- Laurent Beauguitte
+- Mégane Fernandez
+- Hugues pecout
+date: last-modified
+ordre: 01
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+---
+
+
+## Introduction
+
+Cette leçon a pour objectif d’introduire à la manipulation de réseau avec le package `igraph`.Elle s’adresse aux utilisateur·rices R maîtrisant les manipulations de base des objets R. Un minimum de connaissance en matière de théorie de graphe est également requis. 
+
+Plan du cours :
+
+- Présentation du package [`igraph`](https://r.igraph.org/)
+- L’objet `igraph` : création, manipulation et export  
+- Indicateurs globaux  
+- Mesures locales  
+- Cliques et communautés  
+- Représentation graphique  
+- Exercice  
+
+
+
+## <i class="bi bi-book"></i> Manuel & exercice {.title}
+
+<iframe class="slide" src="https://elementr.gitpages.huma-num.fr/session_reseau/intro_reseau_igraph/">
+
+</iframe>
+
+\
+
+::: center
+<a href="https://elementr.gitpages.huma-num.fr/session_reseau/intro_reseau_igraph/" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-eye"></i> Consulter en plein écran</a>
+:::
+
+\
+

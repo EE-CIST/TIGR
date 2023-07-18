@@ -1,0 +1,27 @@
+---
+title: "Introduction au WebScraping"
+subtitle: "WORK IN PROGRESS - Avril 2024"
+author: 
+- Alexandre Cebeillac
+- Léa Christophe
+- Robin Cura
+- Hugues Pecout
+- Sébastien Rey-Coyrehourcq
+date: last-modified
+ordre: 01
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+---
+
+## Fondamentaux et cas pratiques de Webscraping avec R (et Python)
+
+:::callout-important
+## Travail en cours
+Publication prévue pour avril 2024
+:::
+
+

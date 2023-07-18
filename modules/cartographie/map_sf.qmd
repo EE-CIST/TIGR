@@ -1,0 +1,150 @@
+---
+title: "Cartographie avec `mapsf`"
+subtitle: "Présentation du package `mapsf` pour la cartographie thématique"
+author: 
+- Timothée Giraud
+- Hugues pecout
+date: last-modified
+ordre: 01
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+---
+
+## Introduction
+
+Cette leçon vise à initier à l'utilisation du package `mapsf` pour la construction et la mise en page de carte thématique et statistique de différents types :
+
+-   Carte de **symboles proportionnels**
+-   Carte **choroplèthe**
+-   Carte de **typologie**
+-   Carte de **stocks et de ratios**
+-   Carte de **stocks et de catégories**
+
+La construction de cartogramme (ou anamorphose) à l'aide du package `cartogram` est également abordé en fin de leçon.
+
+## <i class="bi bi-book"></i> Manuel {.title}
+
+<iframe class="slide" src="https://rcarto.github.io/cartographie_avec_r/">
+
+</iframe>
+
+\
+
+::: center
+<a href="https://rcarto.github.io/cartographie_avec_r/" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-eye"></i> Consulter en plein écran</a>
+:::
+
+\
+
+## <i class="bi bi-person-workspace"></i> Exercice {.title .exo-title}
+
+::: {#exo}
+[1. Créez un projet Rstudio]{.question}
+
+*File/New Project/New Directory...*
+
+[2. Téléchargez les données suivantes :]{.question}
+
+|             Intitulé              |                                                                     Téléchargement                                                                      |
+|:--------------:|:-----------------------------------------------------:|
+| Données pays africains (UN-CEPII) | <a href="https://bit.ly/3DaCAkX" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
+| Fond de carte Afrique (GADM 2020) | <a href="https://bit.ly/3DaAUb2" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
+
+[3. Placez les données (décompressées) dans le répertoire de votre projet, de la façon suivante :]{.question}
+
+```{r, echo=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("../img/folder3.png")
+```
+
+[4. Importez les fichiers suivants en utilisant les fonctions adéquates :]{.question}
+
+-   data/DEV_AFRIA_2018/**afrika_don.csv**\
+-   data/GADM_AFRICA_2020/**afrika_map.shp**\
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+  
+# Pour importer le fichier csv (afrika_don.csv)
+read.csv()
+read.csv2()
+
+# Pour importer le fichier ESRI Shapefile (afrika_map.shp)
+library(sf)
+st_read()
+
+
+```
+
+[5. Faîte une jointure entre le fond de carte des pays et le tableau de données statistiques]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+  
+# Jointure en R-base
+merge() 
+
+# Ou 
+jointure avec le package dplyr
+left_join()
+
+```
+
+[6. Construisez une carte thématique représentant la variable **POP** (nombre d'habitants)]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# Créer une carte en symboles proportionnels
+mf_map()
+# OU
+mf_prop()
+
+
+```
+
+[7. Construisez une thématique représentant la variable **INTERN** (part des utilisateurs d'internet dans la population totale)]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+  
+# Créer une carte choroplèthe
+mf_map()
+# OU
+mf_choro()
+
+```
+
+[8. Exportez ces deux cartes en format svg et png, à l'aide d'une fonction du package mapsf]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+  
+mf_export()
+dev.off()
+
+```
+
+[9. Construisez une carte thématique représentant la variable **POP** ET la variable **INTERN**]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+  
+# Créer une carte de stocks et de ratios
+mf_map()
+# OU
+mf_prop_choro()
+
+```
+
+------------------------------------------------------------------------
+
+\
+
+::: center
+<a href="/correction/cartographie_mapsf.zip" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Corrigé</a>
+:::
+:::
