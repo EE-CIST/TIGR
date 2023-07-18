@@ -1,0 +1,1 @@
+Sitemap: https://tigr.netlify.app/sitemap.xml

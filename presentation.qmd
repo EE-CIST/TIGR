@@ -32,14 +32,15 @@ Consulter en [**plein écran**](https://elementr.gitpages.huma-num.fr/session_1/
 
 <center style="font-size:80%;">
 
-Consulter en [**plein écran**](https://huguespecout.github.io/Intro_R_Rstudio_FR/#/)   
+Consulter en [**plein écran**](https://huguespecout.github.io/Intro_R_Rstudio_FR/#/)
 
 </center>
 
-:::callout-note
+::: callout-note
 ## Installer R et Rstudio
-Téléchargez R et Rstudio depuis le site de Posit : <https://posit.co/download/rstudio-desktop/>     
-Puis, suivez les instructions d'installation (classiques) 
+
+Téléchargez R et Rstudio depuis le site de Posit : <https://posit.co/download/rstudio-desktop/>\
+Puis, suivez les instructions d'installation (classiques)
 :::
 
 ### Les modules thématiques
@@ -50,7 +51,7 @@ Les leçons TIG'R sont classées en huit modules thématiques qui segmentent l'e
 -   [**Manipulation de données**](modules/manipulation.qmd) (gestion & traitement de données)
 -   [**Statistique descriptives**](modules/statistique.qmd) (uni, bi et multivariée)
 -   [**Représentation graphique**](modules/graphique.qmd) (R-base & ggplot2)
--   [**Analyse de réseau**](modules/reseau.qmd) (Théotire de graphes et analyse de réseau)
+-   [**Analyse de réseau**](modules/network.qmd) (Théorie de graphes et analyse de réseau)
 -   [**Géomatique**](modules/geomatique.qmd) (traitement des données vectorielles et raster)
 -   [**Cartographie thématique**](modules/cartographie.qmd) (statique et interactive)
 -   [**Reproductibilité**](modules/reproductibilite.qmd) (Bonnes pratiques pour la recherche reproductible)
@@ -82,8 +83,6 @@ Les packages utilisés dans les différents modules thématiques sont :
 -   [rmarkdown](https://rmarkdown.rstudio.com/)
 -   [knitr](https://yihui.org/knitr/)
 -   [miniCRAN](http://andrie.github.io/miniCRAN/)
-
-
 
 #### Installation
 
