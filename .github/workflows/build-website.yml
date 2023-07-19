@@ -1,0 +1,27 @@
+name : build-site
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  container-quarto:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v3
+       - name: Render quarto
+         uses: addnab/docker-run-action@v3
+         with:
+           image: sreycoyrehourcq/cist-ee:main
+           options:
+             --user root
+             -v /home/runner/work/website/website:/project/website
+           run: quarto render /project/website
+       - name: deploy website   
+         uses: jsmrcaga/action-netlify-deploy@v1.1.0
+         with:
+           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_SECRET }}
+           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+           NETLIFY_DEPLOY_TO_PROD: true
+           build_directory: _site
