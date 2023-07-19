@@ -131,10 +131,4 @@ Un *miniCRAN* comportant l'ensemble des packages utilisés dans les leçons de c
 Pour connaitre l'ensemble des fonctionnalités offertes par le package `miniCRAN`, consultez le [site web du package](http://andrie.github.io/miniCRAN/index.html).
 
 \
-\
 
-<!-- ::: center -->
-
-<!-- <a href="/miniCRAN.pdf" class="btn btn-success" role="button" aria-disabled="true"><i class="bi bi-file-pdf"></i> Télécharger ce document format PDF</a> -->
-
-<!-- ::: -->
