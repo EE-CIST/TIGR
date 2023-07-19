@@ -3,7 +3,7 @@ title: "Données"
 subtitle: "Présentation et téléchargement des données utilisés dans les modules"
 ---
 
-:::callout-note
+::: callout-note
 **Seules les données mobilisées dans le cadre de l'école thématique [Méthodes et outils de sciences territoriales](https://ee2023.netlify.app/) organisée par la [FR CIST](https://cist.cnrs.fr/) (Bénin, mars 2023) sont présentées et mises à disposition sur cette page.**
 :::
 
