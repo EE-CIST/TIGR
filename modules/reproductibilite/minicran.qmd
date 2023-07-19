@@ -35,9 +35,9 @@ la fonction `pkgDep()`permet de connaitre la liste de toutes les dépendances d'
 ```{r eval = TRUE}
 #| code-fold: FALSE
 
-library("miniCRAN")
+library(miniCRAN)
 
-pkgDep("mapsf", suggests = FALSE, enhances = FALSE)
+pkgDep(pkg = "mapsf", suggests = FALSE, enhances = FALSE, repos = "https://cloud.r-project.org/")
 
 ```
 
@@ -47,7 +47,7 @@ Vous pouvez visualiser ces dépendances sous forme de graphe à l'aide de la fon
 #| code-fold: FALSE
 
 # Construction d'un objet igraph (graphe) formalisant les dépendances d'un package
-graph_dep <- makeDepGraph( "mapsf", suggests = FALSE, enhances = FALSE)
+graph_dep <- makeDepGraph( "mapsf", suggests = FALSE, enhances = FALSE, repos = "https://cloud.r-project.org/")
 
 # Affichage du graphe
 plot(graph_dep , legendPosition = c(-1, 1), vertex.size = 20)
