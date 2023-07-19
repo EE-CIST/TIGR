@@ -7,7 +7,7 @@ website:
   title: TIG'R
   favicon: img/tigr2.png
   twitter-card: true
-  site-url: https://tigr.netlify.app/
+  site-url: https://ee-cist.github.io/TIGR/
   description: "Modules de formation pour le traitement de l'information géographique avec R"
   page-navigation: true
   search:
@@ -150,7 +150,7 @@ website:
       - icon: github
         aria-label: GitHub
         text: GitHub
-        href: https://github.com/HuguesPecout/Modules_R
+        href: https://github.com/EE-CIST/TIGR/
         
 
   page-footer:  Ecole d'été CIST·2023 - [![licensebuttons by-sa](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0) - Ouidah, Bénin 
