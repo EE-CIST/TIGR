@@ -16,9 +16,9 @@ jobs:
            image: sreycoyrehourcq/cist-ee:main
            options:
              --user root
-             -v /home/runner/work/website/website:/project/website
-           run: quarto render /project/website
-       - name: deploy website   
+             -v /home/runner/work/TIGR/TIGR:/project/TIGR
+           run: quarto render /project/TIGR
+       - name: deploy TIGR   
          uses: jsmrcaga/action-netlify-deploy@v1.1.0
          with:
            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_SECRET }}
