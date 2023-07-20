@@ -79,7 +79,7 @@ datatable(pays_afrique ,  options = list(
 
 ```
 
-#### Affichege de géométrie :
+#### Affichage de géométrie :
 
 ```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE, message=FALSE}
 

@@ -13,10 +13,9 @@
     ]
   },
   {
-    "listing": "/modules/reproductibilite.html",
+    "listing": "/modules/network.html",
     "items": [
-      "/modules/reproductibilite/minicran.html",
-      "/modules/reproductibilite/programmation_lettree.html"
+      "/modules/reseau/igraph.html"
     ]
   },
   {
@@ -27,16 +26,11 @@
     ]
   },
   {
-    "listing": "/modules/graphique.html",
+    "listing": "/modules/statistique.html",
     "items": [
-      "/modules/graphique/Rbase_graph.html",
-      "/modules/graphique/ggplot2.html"
-    ]
-  },
-  {
-    "listing": "/modules/cartographie.html",
-    "items": [
-      "/modules/cartographie/map_sf.html"
+      "/modules/statistique/statistique_uni.html",
+      "/modules/statistique/statistique_bi.html",
+      "/modules/statistique/statistique_multi.html"
     ]
   },
   {
@@ -55,17 +49,23 @@
     ]
   },
   {
-    "listing": "/modules/network.html",
+    "listing": "/modules/cartographie.html",
     "items": [
-      "/modules/reseau/igraph.html"
+      "/modules/cartographie/map_sf.html"
     ]
   },
   {
-    "listing": "/modules/statistique.html",
+    "listing": "/modules/reproductibilite.html",
     "items": [
-      "/modules/statistique/statistique_bi.html",
-      "/modules/statistique/statistique_multi.html",
-      "/modules/statistique/statistique_uni.html"
+      "/modules/reproductibilite/minicran.html",
+      "/modules/reproductibilite/programmation_lettree.html"
+    ]
+  },
+  {
+    "listing": "/modules/graphique.html",
+    "items": [
+      "/modules/graphique/Rbase_graph.html",
+      "/modules/graphique/ggplot2.html"
     ]
   }
 ]
