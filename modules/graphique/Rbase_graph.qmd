@@ -17,7 +17,7 @@ format:
 
 **Le langage R met à disposition un ensemble de fonctions pour la représentation graphique** via le package pré-installé `graphics` . Bien que l'on préférera des packages spécialisés et plus complets comme `ggplot2` pour créer de jolis graphiques personnalisés, les fonctions R-base de représentation **peuvent être très utiles en matière d'exploration de données**.
 
-## Principales fonctions
+## Les fonctions R-base
 
 Les fonctions graphiques peuvent être classées en trois catégories :
 
@@ -60,7 +60,7 @@ Les fonctions graphiques peuvent être classées en trois catégories :
 
 \
 
-### La fonction plot()
+## La fonction plot()
 
 La fonction primitive de représentation graphique la plus couramment utilisée est la fonction `plot()`. **Il s'agit d'une fonction générique dont le comportement s'adapte automatiquement à la nature de ses arguments**.
 
@@ -127,7 +127,7 @@ plot(y ~ x,
 
 \
 
-### Ajout d'éléménts
+## Ajout d'éléménts
 
 Une fois le graphique construit, plusieurs fonctions primitives vous permettre d'ajouter différents éléments. Exemple :
 
@@ -188,7 +188,7 @@ title("Titre de mon graphique",
 
 \
 
-### Fenêtre graphique
+## Fenêtre graphique
 
 Deux fonctions - `par()` et `layout()` - permettent de gérer les paramètres graphiques, comme la disposition des figures, les marges, les axes, la police... :
 
@@ -197,7 +197,7 @@ Exemple d'utilisation de la fonction `par()` qui contient un grand nombre d'argu
 ```{r eval = TRUE, fig.width=10}
 #| code-fold: FALSE
 
-par(bg = "royalblue1", # Couleur de fond
+par(bg = "#298cbe", # Couleur de fond
     col= "white",      # couleur du graphique
     mfrow = c(2,2),    # Fenêtre découper en deux lignes / deux colonnes (4 graphiques)
     mar = c(5,3,4,1))  # Gestion des marges pour chaque graphique (B,L,T,R)
@@ -227,7 +227,7 @@ Avec la matrice ci-dessus, la fenêtre graphique sera paramétrée pour contenir
 ```{r eval = TRUE, fig.width=10}
 #| code-fold: FALSE
 
-par(bg  = "royalblue1",  col= "white")
+par(bg  = "#298cbe",  col= "white")
 
 # Découpage de la fenêtre graphique
 layout(mat = matrix(c(1,1,1,2,0,3,2,0,3),  3,  3,  byrow = TRUE))
@@ -242,7 +242,7 @@ plot(x = log(1:10), y = 10:1, main = "plot 3")
 
 ## Principaux graphiques
 
-### Variable Quanti.
+### Variable Quantitative
 
 Pour représenter la distribution d'un variable quantitative, plusieurs types de graphiques peuvent être utilisés.
 
@@ -310,7 +310,7 @@ stripchart(cars$dist,  pch = 16, metho = "jitter", add = TRUE)
 
 \
 
-### 2 variables Quanti.
+### 2 variables Quantitatives
 
 #### plot()
 
@@ -325,7 +325,7 @@ rug(cars$dist)
 
 ```
 
-### Variable Quali.
+### Variable Qualitative
 
 #### plot()
 
@@ -359,7 +359,7 @@ barplot(table_freq )
 
 \
 
-### 2 variables Quali.
+### 2 variables Qualitatives
 
 Comme avec une variable qualitative, vous pouvez utiliser les fonction `plot()` et `barplot()` pour représenter La répartition d'individus en fonction de deux variables qualitatives.
 
@@ -412,7 +412,7 @@ barplot(table_freq, beside=TRUE, legend.text = levels(esoph$alcgp),
 
 \
 
-### Quanti. et Quali.
+### Quantitative & Qualitative
 
 #### plot()
 
@@ -481,7 +481,7 @@ pairs(iris)
 
 \
 
-### Expression math.
+### Expression mathématique
 
 La fonction `curve()` permet de tracer de représenter une expression mathématique.
 

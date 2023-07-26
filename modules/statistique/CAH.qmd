@@ -1,0 +1,226 @@
+---
+title: "Classification ascendante Hiérarchique"
+subtitle: "Réaliser une CAH en R-base et avec FactoMineR"
+author: 
+- Hugues pecout
+date: last-modified
+ordre: 01
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    embed-resources: TRUE
+---
+
+## Principe de la CAH
+
+La Classification Ascendante Hiérarchique (CAH) est l'une des techniques statistiques les plus utilisées pour segmenter une population en différentes classes ou sous-groupes. Son objectif est de regrouper les individus similaires tout en maintenant une grande dissimilarité entre ces classes.
+
+**Le principe de la CAH se déroule en trois étapes :**    
+
+1. **Calcul d'une matrice de distances** qui mesure la distance entre chaque paire d'individus. Lorsque deux observations sont identiques, leur distance est nulle. Plus les observations sont différentes, plus la distance est grande.      
+
+2. **Regroupement hiérarchique** des individus par itération. Cette classification est ascendante car elle part des observations individuelles, et hiérarchique car elle engendre des classes ou groupes de plus en plus larges, incluant des sous-groupes en leur sein.      
+
+3. **Découpage du dendrogramme** (ou arbre de classification) à une certaine hauteur pour obtenir la partition souhaitée.   
+
+## Préparation des données
+
+Pour ce cours nous utiliserons les données ***DEV_AFRICA_2018***.
+
+```{r}
+#| code-fold: FALSE
+ 
+data <- read.csv2(file = "data/DEV_AFRICA_2018/afrika_don.csv")
+
+
+```
+
+Pour réaliser une CAH, il est nécessaire de préparer le tableau de données. Dans un premier temps, nous ne gardons uniquement les variables que nous utiliserons.
+
+```{r}
+#| code-fold: FALSE
+ 
+# Liste des variable à supprimer
+var_to_del <- c("iso3", "name", "nom", "SUBREG")
+
+# Supression des variables
+data_clean <- data[,!names(data) %in% var_to_del]
+
+```
+
+Afin de pouvoir manipuler les données qualitatives, il est nécessaire de les convertir en facteur.
+```{r}
+#| code-fold: FALSE
+ 
+liste_var_quali <-  c("LOCKED", "COLFRA", "COLGBR", "LANGFR", "LANGEN")
+
+# Transformation des variables qualitatives en `factor`
+data_clean[,liste_var_quali] <- data.frame(lapply(data_clean[,liste_var_quali], factor))
+
+```
+
+Enfin, Il est indispensable de bien nommer les lignes afin d'identifier facilement les individus.
+
+
+```{r}
+#| code-fold: FALSE
+
+# Utilisation du code ISO des pays en nom de lignes
+row.names(data_clean) <- data[,"iso3"] 
+
+
+```
+
+**Tableau de données (variables quantitative et variables qualitative) prêt pour la CAH :**
+
+```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
+#| code-fold: FALSE
+
+library(knitr)
+library(kableExtra)
+
+data_clean %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+ scroll_box(height = "400px")
+
+
+```
+
+
+
+## Matrice de distance
+
+La ressemblance des individus est évaluée par la distance mathématique entre chaque observation. Plusieurs distances peuvent être calculées en fonction du type de données utilisées. Voici quelques exemples :    
+
+**Calcul d'une matrice de distance pour des variables quantitatives**
+
+La fonction `dist()` permet dans calculer plusieurs distances mathématiques pour les variables quantitatives (euclidiennes, Maximum, Manhattan, Canberra...)
+
+```{r, eval=TRUE}
+#| code-fold: FALSE
+
+# Sélection des variables quantitatives
+var_quanti <- data_clean[,c(1:17)] 
+
+# Calcul de la matrice de distances (euclidienne)
+md_eucli <- dist(var_quanti, method = "euclidean")
+```
+
+**Calcul d'une matrice de distance pour des variables qualitatives**
+
+Pour des variables qualitatives, une matrice de distances du χ² peut-être obtenue par l'intermédiaire d'une Analyse à Correspondance Multiple (ACM) avec la fonction `dudi.acm()`, puis de la la fonction `dist.dudi()` du package `ade4`. 
+
+La distance utilisée dans les analyses de correspondance multiples (ACM) est une variante de la distance du χ
+
+```{r, eval=TRUE}
+#| code-fold: FALSE
+
+
+# Sélection des variables qualitatives
+var_quali <- data_clean[,c(18:22)] 
+
+library (ade4)
+# Calcul ACM
+acm <- dudi.acm(var_quali, scannf = FALSE, nf = 5)
+
+# Calcul matrice distance du χ²
+md_chi2 <- dist.dudi(acm)
+
+```
+
+**Calcul d'une matrice de distance pour des variables qualitatives et quantitatives**
+
+La distance de Gower peut être utilisée pour un ensemble de variables qualitatives et quantitatives. Pour cela, vous pouvez utilisez la fionction `daisy()` du package `cluster`.
+
+```{r, eval=TRUE}
+#| code-fold: FALSE
+
+library(cluster)
+md_gower <- daisy(data_clean, metric = "gower")
+
+```
+
+
+
+## Regroupement Hiérarchique
+
+
+Il faut ensuite choisir une méthode d'agrégation pour construire le dendrogramme. De nombreuses solutions existent (saut minimum, distance maximum, moyenne, Ward…). Chacune d’elle produira un dendrogramme différent. 
+Par exemple, la méthode "complete" (liaison complète) est une des techniques couramment utilisées pour réaliser le regroupement hiérarchique lors de la CAH. Cette méthode consiste à calculer la distance entre deux groupes de données en se basant sur les distances maximales entre tous les points des deux groupes. Concrètement, lors du regroupement hiérarchique, la distance entre deux groupes est déterminée en trouvant la distance maximale entre les points de chaque groupe. Ainsi, la distance entre deux groupes est définie par la paire d'observations qui sont les plus éloignées l'une de l'autre parmi toutes les paires possibles d'observations entre les deux groupes. Cette approche est souvent utilisée lorsque l'on souhaite privilégier la formation de clusters compacts et bien séparés les uns des autres, car la distance choisie est la plus grande possible entre les groupes. Elle peut être utile lorsque l'on s'intéresse à des sous-groupes distincts et bien définis dans les données.
+
+:::{callout-note}
+Les différentes méthodes de regroupement hiérarchique ("single linkage", "average linkage"n, "ward linkage", utilisent des critères différents pour évaluer la distance entre les groupes et peuvent donner des résultats légèrement différents en termes de structure des clusters formés.
+:::
+
+A l'usage, on privilégiera le plus souvent la méthode de Ward qui cherche à minimiser l’inertie intra-classe et à maximiser l’inertie inter-classe afin d’obtenir des classes les plus homogènes possibles. 
+
+
+
+
+
+En raison de la variété des distances possibles et de la variété des techniques d’agrégation, on pourra être amené à réaliser plusieurs dendrogrammes différents sur un même jeu de données jusqu’à obtenir une classification qui fait « sens ».
+
+La fonction de base pour le calcul d’un dendrogramme est hclust en précisant le critère d’agrégation avec method. Dans notre cas, nous allons opter pour la méthode de Ward appliquée au carré des distances (ce qu’on indique avec method = "ward.D2"
+
+
+
+
+Lors de l'utilisation de la fonction hclust() en R pour effectuer une CAH, vous pouvez spécifier la méthode de regroupement souhaitée à l'aide du paramètre method. Par exemple, pour utiliser la méthode "complete linkage", vous pouvez passer l'argument method = "complete" :
+
+R
+
+**Exemple d'utilisation de la méthode "complete linkage"**
+
+
+En fonction de vos données et de vos objectifs, vous pouvez expérimenter différentes méthodes de regroupement hiérarchique pour obtenir des résultats adaptés à votre analyse.
+
+) :
+
+```{r}
+#| code-fold: FALSE
+
+?hclust
+hc_eucli_ward <- hclust(md_eucli, method = "ward.D2")
+hc_chi2_complete <- hclust(md_chi2, method = "complete")
+hc_gower_complete <- hclust(md_gower, method = "complete")
+```
+
+```{r}
+#| code-fold: FALSE
+plot(hc_eucli_ward)
+plot(hc_chi2_complete)
+plot(hc_gower_complete)
+```
+
+
+```{r, eval=FALSE}
+#| code-fold: FALSE
+
+hc <- hclust(dist_matrix, method = "complete")
+
+# Affichage du dendrogramme
+plot(hc, main = "Dendrogramme de la CAH")
+
+```
+
+
+
+## Partitionnement
+
+
+```{r, eval=FALSE}
+#| code-fold: FALSE
+
+num_clusters <- 3  # Nombre de classes souhaitées
+clusters <- cutree(hc, k = num_clusters)
+
+```
+
+## Caractèriser les classes
+
+## CAH avec FactoMineR
+

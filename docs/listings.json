@@ -19,18 +19,10 @@
     ]
   },
   {
-    "listing": "/modules/manipulation.html",
+    "listing": "/modules/import.html",
     "items": [
-      "/modules/manipulation/manipulation.html",
-      "/modules/manipulation/tidyverse.html"
-    ]
-  },
-  {
-    "listing": "/modules/statistique.html",
-    "items": [
-      "/modules/statistique/statistique_uni.html",
-      "/modules/statistique/statistique_bi.html",
-      "/modules/statistique/statistique_multi.html"
+      "/modules/import/import.html",
+      "/modules/import/scraping.html"
     ]
   },
   {
@@ -42,16 +34,23 @@
     ]
   },
   {
-    "listing": "/modules/import.html",
-    "items": [
-      "/modules/import/import.html",
-      "/modules/import/scraping.html"
-    ]
-  },
-  {
     "listing": "/modules/cartographie.html",
     "items": [
       "/modules/cartographie/map_sf.html"
+    ]
+  },
+  {
+    "listing": "/modules/graphique.html",
+    "items": [
+      "/modules/graphique/Rbase_graph.html",
+      "/modules/graphique/ggplot2.html"
+    ]
+  },
+  {
+    "listing": "/modules/manipulation.html",
+    "items": [
+      "/modules/manipulation/manipulation.html",
+      "/modules/manipulation/tidyverse.html"
     ]
   },
   {
@@ -62,10 +61,12 @@
     ]
   },
   {
-    "listing": "/modules/graphique.html",
+    "listing": "/modules/statistique.html",
     "items": [
-      "/modules/graphique/Rbase_graph.html",
-      "/modules/graphique/ggplot2.html"
+      "/modules/statistique/CAH.html",
+      "/modules/statistique/statistique_bi.html",
+      "/modules/statistique/statistique_multi.html",
+      "/modules/statistique/statistique_uni.html"
     ]
   }
 ]

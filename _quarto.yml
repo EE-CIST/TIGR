@@ -74,7 +74,7 @@ website:
           - href: modules/graphique/Rbase_graph.qmd
             text: Graphique R-base
           - href: modules/graphique/ggplot2.qmd
-            text: Graphique avec `ggplot2`
+            text: Le package `ggplot2`
             
       - section: "**Réseau**"
         contents:
