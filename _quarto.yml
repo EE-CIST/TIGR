@@ -63,8 +63,8 @@ website:
           #   text: Univariée
           # - href: modules/statistique/statistique_bi.qmd
           #   text: Bivariée
-          # - href: modules/statistique/statistique_multi.qmd
-          #   text: Multivariée
+          - href: modules/statistique/CAH.qmd
+            text: Classification AH
           
           
       - section: "**Graphique**"

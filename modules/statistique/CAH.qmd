@@ -1,6 +1,6 @@
 ---
-title: "Classification ascendante Hiérarchique"
-subtitle: "Réaliser une CAH en R-base et avec FactoMineR"
+title: "Classification Ascendante Hiérarchique"
+subtitle: "Réaliser une Classification Ascendante Hiérarchique avec R-base"
 author: 
 - Hugues pecout
 date: last-modified
@@ -18,13 +18,15 @@ format:
 
 La Classification Ascendante Hiérarchique (CAH) est l'une des techniques statistiques les plus utilisées pour segmenter une population en différentes classes ou sous-groupes. Son objectif est de regrouper les individus similaires tout en maintenant une grande dissimilarité entre ces classes.
 
-**Le principe de la CAH se déroule en trois étapes :**    
+**Le principe de la CAH se déroule en trois étapes :**
 
-1. **Calcul d'une matrice de distances** qui mesure la distance entre chaque paire d'individus. Lorsque deux observations sont identiques, leur distance est nulle. Plus les observations sont différentes, plus la distance est grande.      
+1.  **Calcul d'une matrice de distances** qui mesure la distance entre chaque paire d'individus. Lorsque deux observations sont identiques, leur distance est nulle. Plus les observations sont différentes, plus la distance est grande.
 
-2. **Regroupement hiérarchique** des individus par itération. Cette classification est ascendante car elle part des observations individuelles, et hiérarchique car elle engendre des classes ou groupes de plus en plus larges, incluant des sous-groupes en leur sein.      
+2.  **Regroupement hiérarchique** des individus par itération. Cette classification est ascendante car elle part des observations individuelles. Elle est hhiérarchique car elle engendre des classes ou groupes de plus en plus larges (incluant des sous-groupes en leur sein) en fonction des distances calculée entre les individus.
 
-3. **Découpage du dendrogramme** (ou arbre de classification) à une certaine hauteur pour obtenir la partition souhaitée.   
+3.  **Découpage du dendrogramme** (ou arbre de classification) à une certaine hauteur pour obtenir la partition souhaitée.
+
+\
 
 ## Préparation des données
 
@@ -52,6 +54,7 @@ data_clean <- data[,!names(data) %in% var_to_del]
 ```
 
 Afin de pouvoir manipuler les données qualitatives, il est nécessaire de les convertir en facteur.
+
 ```{r}
 #| code-fold: FALSE
  
@@ -63,7 +66,6 @@ data_clean[,liste_var_quali] <- data.frame(lapply(data_clean[,liste_var_quali], 
 ```
 
 Enfin, Il est indispensable de bien nommer les lignes afin d'identifier facilement les individus.
-
 
 ```{r}
 #| code-fold: FALSE
@@ -90,13 +92,13 @@ data_clean %>%
 
 ```
 
-
+\
 
 ## Matrice de distance
 
-La ressemblance des individus est évaluée par la distance mathématique entre chaque observation. Plusieurs distances peuvent être calculées en fonction du type de données utilisées. Voici quelques exemples :    
+La ressemblance des individus est évaluée par la distance mathématique entre chaque observation. Plusieurs distances peuvent être calculées en fonction du type de données utilisées. Voici quelques exemples :
 
-**Calcul d'une matrice de distance pour des variables quantitatives**
+**Calcul d'une matrice de distance pour des variables quantitatives.**
 
 La fonction `dist()` permet dans calculer plusieurs distances mathématiques pour les variables quantitatives (euclidiennes, Maximum, Manhattan, Canberra...)
 
@@ -110,11 +112,11 @@ var_quanti <- data_clean[,c(1:17)]
 md_eucli <- dist(var_quanti, method = "euclidean")
 ```
 
-**Calcul d'une matrice de distance pour des variables qualitatives**
+**Calcul d'une matrice de distance pour des variables qualitatives.**
 
-Pour des variables qualitatives, une matrice de distances du χ² peut-être obtenue par l'intermédiaire d'une Analyse à Correspondance Multiple (ACM) avec la fonction `dudi.acm()`, puis de la la fonction `dist.dudi()` du package `ade4`. 
+Pour des variables qualitatives, une matrice de distances du χ² peut-être obtenue par l'intermédiaire d'une Analyse à Correspondance Multiple (ACM) avec la fonction `dudi.acm()`, puis de la la fonction `dist.dudi()` du package `ade4`.
 
-La distance utilisée dans les analyses de correspondance multiples (ACM) est une variante de la distance du χ
+La distance utilisée dans les analyses de correspondance multiples (ACM) est une variante de la distance du χ².
 
 ```{r, eval=TRUE}
 #| code-fold: FALSE
@@ -132,7 +134,7 @@ md_chi2 <- dist.dudi(acm)
 
 ```
 
-**Calcul d'une matrice de distance pour des variables qualitatives et quantitatives**
+**Calcul d'une matrice de distance pour des variables qualitatives et quantitatives.**
 
 La distance de Gower peut être utilisée pour un ensemble de variables qualitatives et quantitatives. Pour cela, vous pouvez utilisez la fionction `daisy()` du package `cluster`.
 
@@ -144,83 +146,228 @@ md_gower <- daisy(data_clean, metric = "gower")
 
 ```
 
-
+\
 
 ## Regroupement Hiérarchique
 
+Il faut ensuite choisir une méthode d'agrégation pour construire le dendrogramme. De nombreuses solutions existent (*single linkage*, *average linkage*, *ward linkage*...). Les différentes méthodes de regroupement hiérarchique utilisent des critères différents pour évaluer la distance entre les groupes et peuvent donner des résultats (dendogramme) légèrement différents en termes de structure des clusters formés. 
 
-Il faut ensuite choisir une méthode d'agrégation pour construire le dendrogramme. De nombreuses solutions existent (saut minimum, distance maximum, moyenne, Ward…). Chacune d’elle produira un dendrogramme différent. 
-Par exemple, la méthode "complete" (liaison complète) est une des techniques couramment utilisées pour réaliser le regroupement hiérarchique lors de la CAH. Cette méthode consiste à calculer la distance entre deux groupes de données en se basant sur les distances maximales entre tous les points des deux groupes. Concrètement, lors du regroupement hiérarchique, la distance entre deux groupes est déterminée en trouvant la distance maximale entre les points de chaque groupe. Ainsi, la distance entre deux groupes est définie par la paire d'observations qui sont les plus éloignées l'une de l'autre parmi toutes les paires possibles d'observations entre les deux groupes. Cette approche est souvent utilisée lorsque l'on souhaite privilégier la formation de clusters compacts et bien séparés les uns des autres, car la distance choisie est la plus grande possible entre les groupes. Elle peut être utile lorsque l'on s'intéresse à des sous-groupes distincts et bien définis dans les données.
+Par exemple, la méthode *complete linkage* (liaison complète) est une des techniques couramment utilisées pour réaliser le regroupement hiérarchique lors de la CAH. Cette méthode consiste à calculer la distance entre deux groupes de données en se basant sur les distances maximales entre tous les points des deux groupes. Concrètement, lors du regroupement hiérarchique, la distance entre deux groupes est déterminée en trouvant la distance maximale entre les points de chaque groupe. Ainsi, la distance entre deux groupes est définie par la paire d'observations qui sont les plus éloignées l'une de l'autre parmi toutes les paires possibles d'observations entre les deux groupes. Cette approche est souvent utilisée lorsque l'on souhaite privilégier la formation de clusters compacts et bien séparés les uns des autres, car la distance choisie est la plus grande possible entre les groupes. Elle peut être utile lorsque l'on s'intéresse à des sous-groupes distincts et bien définis dans les données.
 
-:::{callout-note}
-Les différentes méthodes de regroupement hiérarchique ("single linkage", "average linkage"n, "ward linkage", utilisent des critères différents pour évaluer la distance entre les groupes et peuvent donner des résultats légèrement différents en termes de structure des clusters formés.
+La fonction R-base pour le calcul d'un dendrogramme à partir d'une matrice de distances est `hclust()`. La méthode d'aggrégation souhaitée peut être précisé avec l'argument `method`. Quelques exemple d'application :
+
+::: {.panel-tabset}
+## Variables quantitatives
+
+Aggrégation des individus par la méthode de *Ward* appliquée au carré des distances ("ward.D2")
+
+```{r}
+#| code-fold: FALSE
+hc_eucli_ward2 <- hclust(md_eucli, method = "ward.D2")
+```
+
+Visualisation du dendogramme (arbre de classification) avec la fonction `plot()`.
+
+```{r}
+#| code-fold: FALSE
+plot(hc_eucli_ward2, main = "Distance euclidienne + Méthode de Ward2")
+
+```
+
+## Variables qualitatives
+
+Aggrégation des individus par la méthode de liason complète ("complete")
+
+```{r}
+#| code-fold: FALSE
+hc_chi2_complete <- hclust(md_chi2, method = "complete")
+```
+
+Visualisation du dendogramme (arbre de classification) avec la fonction `plot()`.
+
+```{r}
+#| code-fold: FALSE
+plot(hc_chi2_complete, main = "Distance chi2 + Méthode de liasion complète")
+```
+
+## Toutes les variables (quantitatives et qualitatives)
+
+Aggrégation des individus par la méthode de liason moyenne ("average")
+
+
+```{r}
+#| code-fold: FALSE
+hc_gower_average <- hclust(md_gower, method = "average")
+```
+
+Visualisation du dendogramme (arbre de classification) avec la fonction `plot()`.
+
+```{r}
+#| code-fold: FALSE
+plot(hc_gower_average, main = "Distance de Gower + Méthode de liaison moyenne")
+```
+
+::: 
+
+:::{.callout-important}
+En fonction de vos données et de vos objectifs, vous pouvez réaliser plusieurs dendrogramme différents jusqu'à obtenir une classification qui fait « sens ».
 :::
 
-A l'usage, on privilégiera le plus souvent la méthode de Ward qui cherche à minimiser l’inertie intra-classe et à maximiser l’inertie inter-classe afin d’obtenir des classes les plus homogènes possibles. 
-
-
-
-
-
-En raison de la variété des distances possibles et de la variété des techniques d’agrégation, on pourra être amené à réaliser plusieurs dendrogrammes différents sur un même jeu de données jusqu’à obtenir une classification qui fait « sens ».
-
-La fonction de base pour le calcul d’un dendrogramme est hclust en précisant le critère d’agrégation avec method. Dans notre cas, nous allons opter pour la méthode de Ward appliquée au carré des distances (ce qu’on indique avec method = "ward.D2"
-
-
-
-
-Lors de l'utilisation de la fonction hclust() en R pour effectuer une CAH, vous pouvez spécifier la méthode de regroupement souhaitée à l'aide du paramètre method. Par exemple, pour utiliser la méthode "complete linkage", vous pouvez passer l'argument method = "complete" :
-
-R
-
-**Exemple d'utilisation de la méthode "complete linkage"**
-
-
-En fonction de vos données et de vos objectifs, vous pouvez expérimenter différentes méthodes de regroupement hiérarchique pour obtenir des résultats adaptés à votre analyse.
-
-) :
-
-```{r}
-#| code-fold: FALSE
-
-?hclust
-hc_eucli_ward <- hclust(md_eucli, method = "ward.D2")
-hc_chi2_complete <- hclust(md_chi2, method = "complete")
-hc_gower_complete <- hclust(md_gower, method = "complete")
-```
-
-```{r}
-#| code-fold: FALSE
-plot(hc_eucli_ward)
-plot(hc_chi2_complete)
-plot(hc_gower_complete)
-```
-
-
-```{r, eval=FALSE}
-#| code-fold: FALSE
-
-hc <- hclust(dist_matrix, method = "complete")
-
-# Affichage du dendrogramme
-plot(hc, main = "Dendrogramme de la CAH")
-
-```
-
-
+\
 
 ## Partitionnement
 
+Il ne reste plus qu'à découper le dendrogramme obtenu à une certaine hauteur pour obtenir une partition des individus. La qualité d'une partition se traduit mathématiquement par une petite variabilité intra-classe et une grande variabilité inter-classes. La forme et les sauts d'inertie du dendogramme permettent d'apprécier l'évolution de ces variabilités en fonction du nombre de partitions.
 
-```{r, eval=FALSE}
+Par exemple :
+
+::: {.panel-tabset}
+## Forme de l'arbre
+
+L'analyse de la forme du dendogramme fournit des indications sur le nombre de classes à retenir. Deux branches bien distinctes apparaissent sur l’arbre. Ces deux branches se subdivisent ensuite en 4 sous-groupes. Les partitions suivantes semblent beaucoup moins marquées. 
+
+```{r}
+#| code-fold: FALSE
+#| echo: FALSE
+plot(hc_eucli_ward2, main = "Distance euclidienne + Méthode de Ward2")
+```
+
+
+
+## Sauts d'inertie
+
+L'inertie de l'arbre renvoyée par la fonction `hclust()` est l'**inertie inter-classe** qui traduit la séparation et la compacité des classes. Elle est calculée à partir des distances entre les centres des classes formés à chaque étape du regroupement. Une inertie inter-classe élevée indique que les clusters sont bien séparés, ce qui est généralement considéré comme souhaitable lors de la formation de groupes homogènes. En visualisant l'évolution de l'inertie selon le nombre de classes, on peut ainsi évaluer la qualité de la partition et choisir le nombre optimal de classes pour créer des groupes homogènes et bien distincts.
+
+L'inertie du dendogramme est stockée dans l'élément `height` d'un objet `hclust`. Il est facile de représenter les sauts d'inertie avec la fonction `plot()`.
+
+```{r}
+#| code-fold: FALSE
+# Récupération et tri croissant de l'inertie de chaque partition
+inertie <- sort(hc_eucli_ward2$height, decreasing = TRUE)
+
+# Représentation graphique de l'inertie en fonction du nombre de classe
+plot(inertie[1:13], type = "s", xlab = "Nombre de classes", ylab = "Inertie")
+```
+
+:::
+
+La fonction `rect.hclust()` permet de visualiser les différentes partitions directement sur le dendrogramme.
+
+```{r}
 #| code-fold: FALSE
 
-num_clusters <- 3  # Nombre de classes souhaitées
-clusters <- cutree(hc, k = num_clusters)
+plot(hc_eucli_ward2, main = "Distance euclidienne + Méthode de Ward2")
+rect.hclust(hc_eucli_ward2, 2, border = "green4") # Partition en 2 classes
+rect.hclust(hc_eucli_ward2, 3, border = "blue4") # Partition en 3 classes
+rect.hclust(hc_eucli_ward2, 4, border = "red4") # Partition en 4 classes
+
 
 ```
 
-## Caractèriser les classes
+La fonction `cutree()` permet de récupérer la partition des individus dans le nombre de classes souhaitées. Elle renvoie un vecteur comportant la classe d'appartrenance de chaque individu. l'ordre des individus étant identique à celui du tableau de départ, la classe d'appartenance des individus peut facilement être ajoutée dans une nouvelle colonne.
 
-## CAH avec FactoMineR
+```{r}
+#| code-fold: FALSE
 
+# k = Nombre de classes souhaitées
+classes <- cutree(hc_eucli_ward2, k = 4)
+
+# Création d'une nouvelle colonne avec la classe d'appartenance
+var_quanti$CAH <- classes
+
+
+```
+
+
+
+```{r}
+#| code-fold: FALSE
+#| echo: FALSE
+
+var_quanti %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+ scroll_box(height = "400px")
+
+```
+
+\
+
+## Caractérisation des classes
+
+Dans l'objectif de caractèriser et de nommer les différentes classes détéctées, il peut être intérressant de faire un résumé statistique de chaque variable pour toutes les classes. Le package `gtsummary` et sa fonction `tbl_summary` est parfaite pour cela.
+
+```{r, warning=FALSE}
+#| code-fold: FALSE
+library(gtsummary)
+tbl_summary(var_quanti, by = CAH)
+```
+
+L'intérprétation des profil des classes peut également être facilitée par la représentation graphique. Commencez par standardiser les valeurs avec la fonction `scale()`
+
+```{r, warning=FALSE}
+#| code-fold: FALSE
+
+scaled_var <- scale(var_quanti[-18])
+
+# Matrice to dataframe
+scaled_var <- as.data.frame(scaled_var)
+
+# Récupération des classe d'appartenance
+scaled_var$CLASSE <- as.factor(classes)
+
+```
+
+Regrouper ensuite les individus de chaque en calulant les moyennes (ou médiannes) de chaque indicateur pour l'ensemble des classes avec la fonction `aggregate()`.
+
+```{r, warning=FALSE}
+#| code-fold: FALSE
+
+# Regroupement individus par classe + calcul moyennes
+Profil_classe <- aggregate(scaled_var[, -18],
+                           by = list(cluster = scaled_var$CLASSE),
+                           mean, na.rm = TRUE)
+
+```
+
+Il est nécessaire de tranformer le tableau en format long avec afin de le représenter graphiquement. Pour cela, vous pouvez utiliser la fonction `pivot_longer()` du package `tidyr`.
+
+```{r, warning=FALSE}
+#| code-fold: FALSE
+
+library(tidyr)
+Profil_classe_lg <- Profil_classe |>
+                      pivot_longer(!cluster, names_to = "variable", values_to = "value")
+
+```
+
+La library `ggplot2` est ensuite très efficace pour représenter graphiquement les profils de chaque classe.
+
+```{r, warning=FALSE}
+#| code-fold: FALSE
+
+library(ggplot2)
+ggplot(Profil_classe_lg) +
+  geom_bar(aes(x = variable, y = value, fill =  cluster), stat = "identity") +
+  scale_fill_manual(values = c("lightblue4", "red4", "yellow4", "blue4")) +
+  facet_wrap(~cluster) +
+  coord_flip() + theme_bw()
+```
+
+## CAH en carte
+
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+#| code-fold: FALSE
+
+library(sf)
+pays_afrique <- st_read("data/GADM_AFRICA_2020/afrika_map.shp",  quiet = TRUE)
+
+pays_afrique <-merge(pays_afrique,var_quanti, by.x="iso3", by.y=0, all.x=TRUE)
+
+library(mapsf)
+mf_map(x = pays_afrique, var = "CAH", type = "typo",
+      pal = c("lightblue4", "red4", "yellow4", "blue4"),
+      leg_title = "Clusters")
+
+
+```
