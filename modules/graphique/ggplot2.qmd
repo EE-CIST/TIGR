@@ -21,7 +21,7 @@ format:
   #   output-ext:  "pdf"
 ---
 
-# Objectifs pédagogiques
+## Objectifs pédagogiques
 
 L'objectif général de ce module est d'initier les participants à l'extension de visualisation de données avec **`ggplot2`**, package de la famille de **`tidyverse`**.
 
@@ -33,11 +33,11 @@ Plus spécifiquement, à la fin de ce module, les participants devraient être c
 
 -   manipuler les principales fonctions graphiques de **`ggplot2`** dédiées à la visualisation de données.
 
-# Introduction
+## Introduction
 
 **`ggplot2`** fait partie de la suite d'extension de **`tidyverse`** ayant une même philosophie de base permettant entre autres, l'importation et l'exportation des données, la manipulation des tableaux de données, la manipulation des colonnes de data.frame (variable), le web scrapping, la programmation. Dans ce module est consacré aux principales fonctions graphiques de `ggplot2` permettant la visualisation des données. Le principe de base de `ggplot2` est que les données de base de la visualisation sont stockées sous forme de tableau de données ou `data.frame`, `tibble` etc.
 
-## Installation et chargement du package `ggplot2`
+### Installation et chargement de `ggplot2`
 
 Les lignes de codes suivantes permettent de faire l'installation et le chargement de tidyverse.
 
@@ -76,9 +76,9 @@ library(ggplot2)
 
 ```
 
-## Fonctions graphiques usuelles de viusalisation des données avec `ggplot2`
+## Principes de `ggplot2`
 
-### Principe de base des synthaxes graphiques de `ggplot2`
+### Base de la syntaxes de `ggplot2`
 
 La syntaxe de `ggplot2` est spécifique et diffère totalement de celle des graphiques de base de R. Elle est de type "**Grammar of Graphics"** et est généralement structurée comme un ensemble indépendant de commandes. Ce module n'est qu'une introduction à quelques fonctions usuelles d'application de `ggplot2`. Pour plus d'information, le lecteur est invité à consulter les nombreuses ressources disponibles (en général gratuitement) en ligne sur l'extension.
 
@@ -90,7 +90,7 @@ Le principe de base de la représentation graphique de `ggplot2` consiste à seg
 
 -   le type de visualisation (représentation graphique) souhaité: camembert, histogramme, etc. Il est aussi spécifié par une fonction.
 
-### Grammaire du ggplot
+### Grammaire graphique
 
 La grammaire de la syntaxe de `ggplot2` se présente ainsi qui suit:
 
@@ -109,7 +109,7 @@ La grammaire de la syntaxe de `ggplot2` se présente ainsi qui suit:
 Le tableau ci-dessous décrit quelques types de représentation géométrique et les types d'informations requises.
 
 | \#  | Geom               | Description               | Aesthetics                             |
-|-----------------|-----------------|-----------------|----------------------|
+|-----------------|-----------------|-----------------|---------------------|
 | 1   | `geom_point()`     | Nuage de points           | x, y, shape, fill                      |
 | 2   | `geom_line()`      | Ligne (ordonnées selon x) | x, y, linetype                         |
 | 3   | `geom_abline()`    | Droite                    | slope, intercept                       |
@@ -235,12 +235,12 @@ ggplot(DevAfrica2018) + geom_bar(aes(y=SUBREG)) +
 
 ```
 
-## Ressources:
+## Ressources
 
 [La documentation officielle de `ggplot2`](http://ggplot2.tidyverse.org/)\
 [The R Graph Gallery](https://r-graph-gallery.com/ggplot2-package.html)
 
-## L'interface graphique du package `Esquisse`
+## Le package `Esquisse`
 
 ```{r, warning=FALSE, message=FALSE, eval=FALSE}
 #| code-fold: FALSE
@@ -260,6 +260,7 @@ Construisez votre graphique ggplot en clic-bouton et glisser-déposer, puis réc
 knitr::include_graphics("../img/ex_esquisse.png")
 ```
 
+
 ## <i class="bi bi-person-workspace"></i> Exercice {.title .exo-title}
 
 ::: {#exo}
@@ -270,7 +271,7 @@ knitr::include_graphics("../img/ex_esquisse.png")
 [2. Téléchargez les données suivantes :]{.question}
 
 |             Intitulé              |                                                                     Téléchargement                                                                      |
-|:---------------------:|:-----------------------------------------------:|
+|:----------------------:|:----------------------------------------------:|
 | Données pays africains (UN-CEPII) | <a href="https://bit.ly/3DaCAkX" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
 
 [3. Placez les données (décompressées) dans le répertoire de votre projet, de la façon suivante :]{.question}
@@ -381,7 +382,6 @@ ggsave("...", dpi = 3000)
 
 
 ```
-
 
 ------------------------------------------------------------------------
 

@@ -566,7 +566,7 @@ mf_layout()
 
 
 
-:::
+
 
 ------------------------------------------------------------------------
 
@@ -575,7 +575,7 @@ mf_layout()
 ::: center
 <a href="/correction/CAH.zip" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Corrigé</a>
 :::
-
+:::
 
 \
 \

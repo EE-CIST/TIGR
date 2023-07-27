@@ -75,7 +75,7 @@ pays_afrique <- st_read("data/GADM_AFRICA_2020/afrika_map.shp",  quiet = TRUE)
 pays_afrique  %>% 
   kable %>%
   kable_styling("striped", full_width = F) %>% 
-  scroll_box(height = "400px")
+  scroll_box(height = "300px")
 
 ```
 

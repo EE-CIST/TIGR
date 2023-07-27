@@ -1,5 +1,5 @@
-path_miniCRAN <- "/home/hugues/Documents/5.Cours/Modules_R/miniCRAN"
-path_miniCRAN <- "/home/hugues/Bureau/Modules_R/miniCRAN"
+path_miniCRAN <- "/home/hugues/Documents/3. EE CIST-2023/TIGR/miniCRAN"
+# path_miniCRAN <- "/home/hugues/Bureau/Modules_R/miniCRAN"
 
 # Création du répertoire nommé "miniCRAN"
 dir.create(path = path_miniCRAN)
@@ -97,12 +97,14 @@ mes_pkgs <- c("data.table",
               "remotes",
               "xlsx",
               "tinytex", 
-              "curl")
+              "curl",
+              "jpeg", 
+              "ade4", 
+              "cluster", 
+              "kableExtra")
 
 
-# ttt
-# tinytext latex
-# rayvista
+
 
 
 
@@ -111,10 +113,6 @@ library(miniCRAN)
 # Téléchargement des sources des packages (+ dépendances) dans le répertoire "miniCRAN"
 makeRepo(pkgDep(mes_pkgs), path = path_miniCRAN, type = c("source", "mac.binary", "win.binary"), writePACKAGES = TRUE)
 
-
-mes_pkgs <- c()
-
-makeRepo(pkgDep(mes_pkgs), path = path_miniCRAN, type = c("source", "mac.binary", "win.binary"), writePACKAGES = TRUE)
-
-
+# Ajouter un package au miniCRAN
+addPackage("gtsummary", path = path_miniCRAN, type = c("source", "mac.binary", "win.binary"), writePACKAGES = TRUE)
 

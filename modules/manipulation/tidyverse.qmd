@@ -21,7 +21,7 @@ format:
   #   output-ext:  "pdf"
 ---
 
-# Objectifs pédagogiques
+## Objectifs pédagogiques
 
 L'objectif général de ce module est d'initier les participants à la famille de packages **`tidyverse`**.
 
@@ -35,11 +35,11 @@ Plus spécifiquement, à la fin de ce module, les participants devraient être c
 
 -   manipuler les principales fonctions de dplyr dédiées à la manipulation de données.
 
-# Introduction
+## Introduction
 
 Le terme **tidyvrse** vient de *tidy* (bien ranger ou bien ordonner) et de *universe*. Il s'agit d'une collection de librairies / extensions aynt une même philolophie de base permettant entre autres, l'importation et l'exportation des données, la manipulation des tableaux de données, la manipulation des collonnes de data frame (variable), le web scrapping, la programmation, etc. Dans ce module nous aborderont les extensions du package `tidyverse` permettant la manipulation des données et un peu plus bas celui permettant la visualiation (représentation graphique) des données. soit Le package dplyr propose des fonctions permettant la manipulation des tableaux de données ou data-frames ou plutôt sur une variante appelée **tibble.** Les tibbles se diffèrent des data.frames à quelques exceptions près. En effet, les lignes d'un tibble n'ont pas de nom (identifiant) et à l'afficharge seules quelques lignes sont retounées.
 
-## Installation et chargement du package `tidyverse`
+### Installation et chargement du package `tidyverse`
 
 Les lignes de codes suivantes permettent de faire l'installation et le chargement de `tidyverse`.
 
@@ -96,7 +96,7 @@ library(dplyr)
 
 ```
 
-# Enchaînement des opérations avec le [*pipe*]{.underline}
+## Le [*pipe*]{.underline}
 
 La manipulation des tables de données nous amène parfois à envisager l'enchaînement de plusieurs opérations. Par exemple on peut être appeler à faire une sélection, faire des transformations sur la sélection et en fin faire un tri sur le résultat. Pour ce faire, on peut directement imbriquer les fonctions concernées, ceci dans l'ordre inverse de réalisation dans une approche. Ceci rend le code un peu plus difficile à lire et à comprendre (par exemple il est difficile de voir les paramètres de chaque fonction de façon séparée, etc.). La deuxième approche consistera à faire les opérations de façon séparée en stockant les résultats dans des objets en les passant d'une fonction à une autre. En fin, avec le [***pipe***]{.underline}, il possible de réaliser la série d'opérations de manière efficace, claire et compréhensible. Le symbole du pipe est [**`%\>%` ou \|\> (appelé pipe natif depuis la version 4.1 de R)**.]{.underline} Le pipe natif est la fois un peu plus rapide et un peu moins flexible/souple comparé au pipe originel (`%\>%`). Par exemple avec `%\>%` il est possible d'appeler une fonction sans parenthèse, ce qui est impossible avec le pipe natif (\|\>). La suite d'instructions faisant intervenir plusieurs pipes s'appelle **pipeline.**
 
@@ -122,7 +122,7 @@ DevAfrica2018 |>
 
 ```
 
-# Quelques fonctions usuelles de manipulation des tableaux de données avec dplyr
+## Fonctions usuelles
 
 Avant de commencer, importons la base de données d'application
 
@@ -237,8 +237,6 @@ DevAfrica2018 %>%
 
 ```
 
-# Opérations groupées
-
 ## La fonction `group_by()`
 
 La clause `group_by()` est aussi l'une des fonctions d'usage courant et utile de `dply`r. Elle permet de définir des groupes de lignes à partir des valeurs d'une ou plusieurs colonnes. Par exemple, on peut regroupe la population d'un pays par un certain niveau de découpage administratif. L'usage courant est d'effectuer des opérations sur les groupes constitués par la fonction group_by() en faisant appel à d'autres fonctions, par exemple `slice()`, `mutate()` ou `summarise()`. L'argument `n()` de `summarise()` appliqué à un `group_by()` permet d'obtenir les effectifs par groupe.
@@ -257,7 +255,7 @@ DevAfrica2018 %>%
 
 ```
 
-# Pour aller plus loin \~ autres fonctions utiles
+## Pour aller plus loin
 
 1.  **`slice_sample()`** : sélection aléatoire d'observation dans une table de données,
 
@@ -283,7 +281,7 @@ DevAfrica2018 %>%
 [2. Téléchargez les données suivantes :]{.question}
 
 |             Intitulé              |                                                                     Téléchargement                                                                      |
-|:---------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|:--------------:|:-----------------------------------------------------:|
 | Données pays africains (UN-CEPII) | <a href="https://bit.ly/3DaCAkX" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
 
 [3. Placez les données (décompressées) dans le répertoire de votre projet, de la façon suivante :]{.question}
