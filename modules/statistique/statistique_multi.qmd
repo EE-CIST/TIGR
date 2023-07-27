@@ -1,3 +1,0 @@
----
-title: "Statistique descriptive multivariée"
----

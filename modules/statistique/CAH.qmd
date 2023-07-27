@@ -1,8 +1,9 @@
 ---
 title: "Classification Ascendante Hiérarchique"
-subtitle: "Réaliser une Classification Ascendante Hiérarchique avec R-base"
+subtitle: "Construire une CAH avec des fonctions R-base"
 author: 
 - Hugues pecout
+- Justin Dansou
 date: last-modified
 ordre: 01
 code-fold: true
@@ -14,7 +15,7 @@ format:
     embed-resources: TRUE
 ---
 
-## Principe de la CAH
+## Introduction
 
 La Classification Ascendante Hiérarchique (CAH) est l'une des techniques statistiques les plus utilisées pour segmenter une population en différentes classes ou sous-groupes. Son objectif est de regrouper les individus similaires tout en maintenant une grande dissimilarité entre ces classes.
 
@@ -22,13 +23,13 @@ La Classification Ascendante Hiérarchique (CAH) est l'une des techniques statis
 
 1.  **Calcul d'une matrice de distances** qui mesure la distance entre chaque paire d'individus. Lorsque deux observations sont identiques, leur distance est nulle. Plus les observations sont différentes, plus la distance est grande.
 
-2.  **Regroupement hiérarchique** des individus par itération. Cette classification est ascendante car elle part des observations individuelles. Elle est hhiérarchique car elle engendre des classes ou groupes de plus en plus larges (incluant des sous-groupes en leur sein) en fonction des distances calculée entre les individus.
+2.  **Regroupement hiérarchique** des individus par itération. Cette classification est ascendante car elle part des observations individuelles. Elle est hiérarchique car elle engendre des classes ou groupes de plus en plus larges (incluant des sous-groupes en leur sein) en fonction des distances calculée entre les individus.
 
 3.  **Découpage du dendrogramme** (ou arbre de classification) à une certaine hauteur pour obtenir la partition souhaitée.
 
 \
 
-## Préparation des données
+### Préparation des données
 
 Pour ce cours nous utiliserons les données ***DEV_AFRICA_2018***.
 
@@ -40,7 +41,7 @@ data <- read.csv2(file = "data/DEV_AFRICA_2018/afrika_don.csv")
 
 ```
 
-Pour réaliser une CAH, il est nécessaire de préparer le tableau de données. Dans un premier temps, nous ne gardons uniquement les variables que nous utiliserons.
+Pour réaliser une CAH, il est nécessaire de préparer le tableau de données. Commencez par séléctionner uniquement les variables qui vous souhaitez utiliser.
 
 ```{r}
 #| code-fold: FALSE
@@ -53,7 +54,7 @@ data_clean <- data[,!names(data) %in% var_to_del]
 
 ```
 
-Afin de pouvoir manipuler les données qualitatives, il est nécessaire de les convertir en facteur.
+Afin de pouvoir manipuler correctement des données qualitatives, convertissez-les en facteur.
 
 ```{r}
 #| code-fold: FALSE
@@ -65,7 +66,7 @@ data_clean[,liste_var_quali] <- data.frame(lapply(data_clean[,liste_var_quali], 
 
 ```
 
-Enfin, Il est indispensable de bien nommer les lignes afin d'identifier facilement les individus.
+Il est indispensable de bien nommer les lignes du tableau afin d'identifier facilement les individus.
 
 ```{r}
 #| code-fold: FALSE
@@ -76,7 +77,7 @@ row.names(data_clean) <- data[,"iso3"]
 
 ```
 
-**Tableau de données (variables quantitative et variables qualitative) prêt pour la CAH :**
+**Tableau de données préparé pour la CAH :**
 
 ```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
 #| code-fold: FALSE
@@ -94,13 +95,13 @@ data_clean %>%
 
 \
 
-## Matrice de distance
+## 1. Matrice de distance
 
 La ressemblance des individus est évaluée par la distance mathématique entre chaque observation. Plusieurs distances peuvent être calculées en fonction du type de données utilisées. Voici quelques exemples :
 
 **Calcul d'une matrice de distance pour des variables quantitatives.**
 
-La fonction `dist()` permet dans calculer plusieurs distances mathématiques pour les variables quantitatives (euclidiennes, Maximum, Manhattan, Canberra...)
+La fonction `dist()` permet dans calculer plusieurs distances mathématiques (euclidiennes, Maximum, Manhattan, Canberra...) pour les variables quantitatives 
 
 ```{r, eval=TRUE}
 #| code-fold: FALSE
@@ -148,7 +149,7 @@ md_gower <- daisy(data_clean, metric = "gower")
 
 \
 
-## Regroupement Hiérarchique
+## 2. Regroupement Hiérarchique
 
 Il faut ensuite choisir une méthode d'agrégation pour construire le dendrogramme. De nombreuses solutions existent (*single linkage*, *average linkage*, *ward linkage*...). Les différentes méthodes de regroupement hiérarchique utilisent des critères différents pour évaluer la distance entre les groupes et peuvent donner des résultats (dendogramme) légèrement différents en termes de structure des clusters formés. 
 
@@ -215,11 +216,9 @@ En fonction de vos données et de vos objectifs, vous pouvez réaliser plusieurs
 
 \
 
-## Partitionnement
+## 3. Partitionnement
 
-Il ne reste plus qu'à découper le dendrogramme obtenu à une certaine hauteur pour obtenir une partition des individus. La qualité d'une partition se traduit mathématiquement par une petite variabilité intra-classe et une grande variabilité inter-classes. La forme et les sauts d'inertie du dendogramme permettent d'apprécier l'évolution de ces variabilités en fonction du nombre de partitions.
-
-Par exemple :
+Il ne reste plus qu'à découper le dendrogramme obtenu à une certaine hauteur pour obtenir une partition des individus. La qualité d'une partition se traduit mathématiquement par une petite variabilité intra-classe et une grande variabilité inter-classes. La forme et les sauts d'inertie du dendogramme permettent d'apprécier l'évolution de ces variabilités en fonction du nombre de partitions. Par exemple :
 
 ::: {.panel-tabset}
 ## Forme de l'arbre
@@ -242,11 +241,13 @@ L'inertie du dendogramme est stockée dans l'élément `height` d'un objet `hclu
 
 ```{r}
 #| code-fold: FALSE
+
 # Récupération et tri croissant de l'inertie de chaque partition
 inertie <- sort(hc_eucli_ward2$height, decreasing = TRUE)
 
 # Représentation graphique de l'inertie en fonction du nombre de classe
 plot(inertie[1:13], type = "s", xlab = "Nombre de classes", ylab = "Inertie")
+
 ```
 
 :::
@@ -264,7 +265,7 @@ rect.hclust(hc_eucli_ward2, 4, border = "red4") # Partition en 4 classes
 
 ```
 
-La fonction `cutree()` permet de récupérer la partition des individus dans le nombre de classes souhaitées. Elle renvoie un vecteur comportant la classe d'appartrenance de chaque individu. l'ordre des individus étant identique à celui du tableau de départ, la classe d'appartenance des individus peut facilement être ajoutée dans une nouvelle colonne.
+La fonction `cutree()` permet de récupérer la partition des individus suivant le nombre de classes souhaitées. Elle renvoie un vecteur contenant la classe d'appartrenance de chaque individu. l'ordre des individus étant identique à celui du tableau de départ, la classe d'appartenance des individus peut facilement être ajoutée dans une nouvelle colonne du tableau de départ.
 
 ```{r}
 #| code-fold: FALSE
@@ -273,7 +274,7 @@ La fonction `cutree()` permet de récupérer la partition des individus dans le 
 classes <- cutree(hc_eucli_ward2, k = 4)
 
 # Création d'une nouvelle colonne avec la classe d'appartenance
-var_quanti$CAH <- classes
+var_quanti$CLASSE <- classes
 
 
 ```
@@ -293,17 +294,20 @@ var_quanti %>%
 
 \
 
-## Caractérisation des classes
+## 4. Caractérisation & représentation
+
 
 Dans l'objectif de caractèriser et de nommer les différentes classes détéctées, il peut être intérressant de faire un résumé statistique de chaque variable pour toutes les classes. Le package `gtsummary` et sa fonction `tbl_summary` est parfaite pour cela.
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message = FALSE}
 #| code-fold: FALSE
 library(gtsummary)
-tbl_summary(var_quanti, by = CAH)
+tbl_summary(var_quanti, by = CLASSE)
 ```
 
-L'intérprétation des profil des classes peut également être facilitée par la représentation graphique. Commencez par standardiser les valeurs avec la fonction `scale()`
+### Profil des classes
+
+L'intérprétation des profil des classes peut être facilitée par la représentation graphique. Pour cela, commencez par standardiser les valeurs avec la fonction `scale()`
 
 ```{r, warning=FALSE}
 #| code-fold: FALSE
@@ -318,56 +322,266 @@ scaled_var$CLASSE <- as.factor(classes)
 
 ```
 
-Regrouper ensuite les individus de chaque en calulant les moyennes (ou médiannes) de chaque indicateur pour l'ensemble des classes avec la fonction `aggregate()`.
+Regrouper ensuite les individus par classe d'appartenance en calculant les moyennes (ou médiannes) de chaque indicateur avec la fonction `aggregate()`.
 
 ```{r, warning=FALSE}
 #| code-fold: FALSE
 
 # Regroupement individus par classe + calcul moyennes
 Profil_classe <- aggregate(scaled_var[, -18],
-                           by = list(cluster = scaled_var$CLASSE),
+                           by = list(CLASSE = scaled_var$CLASSE),
                            mean, na.rm = TRUE)
 
 ```
 
-Il est nécessaire de tranformer le tableau en format long avec afin de le représenter graphiquement. Pour cela, vous pouvez utiliser la fonction `pivot_longer()` du package `tidyr`.
+```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
+#| code-fold: FALSE
+Profil_classe %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) 
+```
+
+\
+
+Une dernière étape est nécessaire pour représenter les profil de classe avec `ggplot2`. Tranformez le tableau en format long en utilisant la fonction `pivot_longer()` du package `tidyr`.
 
 ```{r, warning=FALSE}
 #| code-fold: FALSE
 
 library(tidyr)
 Profil_classe_lg <- Profil_classe |>
-                      pivot_longer(!cluster, names_to = "variable", values_to = "value")
+                      pivot_longer(!CLASSE, names_to = "variable", values_to = "value")
 
 ```
 
-La library `ggplot2` est ensuite très efficace pour représenter graphiquement les profils de chaque classe.
+```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
+#| code-fold: FALSE
+Profil_classe_lg %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+  scroll_box(height = "300px") 
+```
+
+\
+
+Représentation graphique des profils de classe avec `ggplot2` :
 
 ```{r, warning=FALSE}
 #| code-fold: FALSE
 
 library(ggplot2)
 ggplot(Profil_classe_lg) +
-  geom_bar(aes(x = variable, y = value, fill =  cluster), stat = "identity") +
-  scale_fill_manual(values = c("lightblue4", "red4", "yellow4", "blue4")) +
-  facet_wrap(~cluster) +
+  geom_bar(aes(x = variable, y = value, fill =  CLASSE), stat = "identity") +
+  scale_fill_manual(values = c("lightblue3", "red3", "yellow3", "blue4")) +
+  facet_wrap(~CLASSE) +
   coord_flip() + theme_bw()
 ```
 
-## CAH en carte
+### Cartographie
 
-```{r, warning=FALSE, echo=FALSE, message=FALSE}
+Si vous souhaitez cartographier les résultat, vous pouvez utiliser le package `mapsf`. Commencez par importer un fond de carte, puis réalisez une jointure avec le tableau de données final contenant les classes d'appartenances. 
+
+
+```{r, warning=FALSE, message=FALSE}
 #| code-fold: FALSE
 
+# Import d'une couche géoghraphique des pays africains 
 library(sf)
 pays_afrique <- st_read("data/GADM_AFRICA_2020/afrika_map.shp",  quiet = TRUE)
 
+# Jointure Fond de carte - tableau
 pays_afrique <-merge(pays_afrique,var_quanti, by.x="iso3", by.y=0, all.x=TRUE)
 
+```
+
+Puis cartographiez la classification avec la fonction `mapsf()` :
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: FALSE
+
+
 library(mapsf)
-mf_map(x = pays_afrique, var = "CAH", type = "typo",
-      pal = c("lightblue4", "red4", "yellow4", "blue4"),
-      leg_title = "Clusters")
+mf_map(x = pays_afrique, 
+       var = "CLASSE", 
+       type = "typo",
+       pal = c("lightblue3", "red3", "yellow3", "blue4"),
+       leg_title = "Classes")
+
+mf_layout(
+  title = "CAH (distance euclidienne + méthode Ward.2)",
+  credits = "H. Pecout; Sources: Human Development Report 2020 & GADM 2023"
+)
+
+```
+
+\
+
+## <i class="bi bi-person-workspace"></i> Exercice {.title .exo-title}
+
+::: {#exo}
+[1. Créez un projet Rstudio]{.question}
+
+*File/New Project/New Directory...*
+
+[2. Téléchargez les données suivantes :]{.question}
+
+|             Intitulé              |                                                                     Téléchargement                                                                      |
+|:----------------:|:----------------------------------------------------:|
+| Données pays africains (UN-CEPII) | <a href="https://bit.ly/3DaCAkX" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
+| Fond de carte Afrique (GADM 2020) | <a href="https://bit.ly/3DaAUb2" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
+
+[3. Placez les données (décompressées) dans le répertoire de votre projet, de la façon suivante :]{.question}
+
+```{r, echo=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("../img/folder3.png")
+```
+
+[4. Importez les fichiers suivants en utilisant les fonctions adéquates :]{.question}
+
+-   data/DEV_AFRICA_2018/**afrika_don.csv**\
+-   data/GADM_AFRICA_2020/**afrika_map.shp**\
+
+Vous pouvez également importer le dictionnaire des variables **afrika_don_meta.csv**.
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+  
+# Pour importer le fichier csv (afrika_don.csv)
+read.csv2()
+read.csv()
+
+# Pour importer le fichier ESRI Shapefile (afrika_map.shp)
+library(sf)
+st_read()
 
 
 ```
+
+
+[5. Explorez les potentielles corrélations entre les différentes variables quantitatives du tableau "afrika_don"]{.question}
+
+Pour cela, utilisez la représentation graphique en nuage de point et le calul de coefficient de corrélation. Quelle(s) variable(s) pourraient-on exclure de la CAH ?
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# Nuages de points multiples  
+pairs()
+# Corrélation multiple
+cor()
+
+# Nuages de points 1 vs 1
+plot()
+# Corrélation 1 vs 1
+cor_test()
+
+
+```
+
+
+[5. Préparez le tabmeau de données pour réalisez un CAH.]{.question}
+
+1. Assignez les valeurs de la variable "iso3" comme noms des lignes du tableau 
+
+2. Sélectionnez uniquement les 10 variables suivantes :"POP", "PIB", "ADOFEC", "EMPAGR", "INTERN", "ESPVIE", "TXMIGR", "DVIEUX", "TUBERC", "URBANI"  
+
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# 1. Ajout de noms de ligne 
+row.names(tableau) <- tabelau$...
+
+# 2. Sélection des colonnes
+New_tab <- tableau[ , ... ]
+
+```
+
+
+[6. Calculez une matrice de distance euclidienne entre toutes les variables.]{.question}
+
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+dist()
+
+```
+
+
+[7. Réalisez un regroupement hiérarchique avec la méthode "ward.d2" puis affichez le dendogramme]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# Regroupement hiérarchique
+hclust()
+
+# Affichage de l'arbre
+plot()
+
+```
+
+[7. Representez l'inertie intra-classe en fonction du partitionnement de l'arbre]{.question}
+
+A quelle hauteur pouvons nous découper le dendogramme ? Combien de classes bien disctinctes pouvons-vous créer ? 
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# Récupération et tri croissant de l'inertie de chaque partition
+... <- sort(...$..., decreasing = TRUE)
+
+# Représentation graphique de l'inertie en fonction du nombre de classe
+plot(...)
+
+```
+
+[8. Découpez le dendogramme en 3 classes et assignez le résultat de la classification dans une nouvelle colonne du tableau de données]{.question}
+
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# Découpage de l'arbre et assignation de la classification dans une nouvelle colonne
+...$... <- cutree()
+
+```
+
+
+[9. Cartographiez le résultat]{.question}
+
+```{r warning = FALSE, message = FALSE , eval = FALSE}
+#| code-summary: "Un peu d'aide ?"
+
+# Joignez le tableau de données au fond de carte
+merge()
+
+# Construisez une carte de typologie - Une couleur par classe détéctée
+library(mapsf)
+mf_map()
+mf_layout()
+
+```
+
+
+
+:::
+
+------------------------------------------------------------------------
+
+\
+
+::: center
+<a href="/correction/CAH.zip" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Corrigé</a>
+:::
+
+
+\
+\
+
+<!-- ::: center -->
+
+<!-- <a href="/import.pdf" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-file-pdf"></i> Télécharger ce document format PDF</a> -->
+
+<!-- ::: -->

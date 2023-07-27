@@ -2,166 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ee-cist.github.io/TIGR/index.html</loc>
-    <lastmod>2023-07-26T08:55:24.335Z</lastmod>
+    <lastmod>2023-07-27T12:19:57.697Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/correction/tidyverse/correction_tidyverse.html</loc>
-    <lastmod>2023-07-26T08:50:17.191Z</lastmod>
+    <lastmod>2023-07-27T12:19:46.469Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/packages.html</loc>
-    <lastmod>2023-07-26T08:50:13.647Z</lastmod>
+    <lastmod>2023-07-27T12:19:43.181Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules.html</loc>
-    <lastmod>2023-07-26T08:50:12.975Z</lastmod>
+    <lastmod>2023-07-27T12:19:42.553Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/quarto.html</loc>
-    <lastmod>2023-07-26T08:50:12.063Z</lastmod>
+    <lastmod>2023-07-27T12:19:41.681Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/WIP/connectBD.html</loc>
-    <lastmod>2023-07-26T08:50:11.435Z</lastmod>
+    <lastmod>2023-07-27T12:19:41.101Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/WIP/api.html</loc>
-    <lastmod>2023-07-26T08:50:10.787Z</lastmod>
+    <lastmod>2023-07-27T12:19:40.489Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/WIP/map_dyn.html</loc>
-    <lastmod>2023-07-26T08:50:10.123Z</lastmod>
+    <lastmod>2023-07-27T12:19:39.861Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/geomatique/geomatic_vector.html</loc>
-    <lastmod>2023-07-26T08:50:08.843Z</lastmod>
+    <lastmod>2023-07-27T12:19:38.637Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/network.html</loc>
-    <lastmod>2023-07-26T08:50:05.095Z</lastmod>
+    <lastmod>2023-07-27T12:19:35.129Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/reproductibilite/programmation_lettree.html</loc>
-    <lastmod>2023-07-26T08:50:00.827Z</lastmod>
+    <lastmod>2023-07-27T12:19:30.689Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/import/import.html</loc>
-    <lastmod>2023-07-26T08:50:00.107Z</lastmod>
+    <lastmod>2023-07-27T12:19:29.961Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/manipulation.html</loc>
-    <lastmod>2023-07-26T08:49:53.471Z</lastmod>
+    <lastmod>2023-07-27T12:19:23.305Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/statistique.html</loc>
-    <lastmod>2023-07-26T17:40:23.015Z</lastmod>
+    <lastmod>2023-07-27T12:19:21.489Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/manipulation/tidyverse.html</loc>
-    <lastmod>2023-07-26T08:49:47.755Z</lastmod>
+    <lastmod>2023-07-27T12:19:17.649Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/graphique/ggplot2.html</loc>
-    <lastmod>2023-07-26T08:49:39.715Z</lastmod>
+    <lastmod>2023-07-27T12:19:09.009Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/cartographie/map_sf.html</loc>
-    <lastmod>2023-07-26T08:49:34.267Z</lastmod>
+    <lastmod>2023-07-27T12:19:03.149Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/geomatique.html</loc>
-    <lastmod>2023-07-26T08:49:32.135Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ee-cist.github.io/TIGR/modules/statistique/statistique_bi.html</loc>
-    <lastmod>2023-07-26T08:49:31.427Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ee-cist.github.io/TIGR/modules/statistique/CAH.html</loc>
-    <lastmod>2023-07-26T17:40:22.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ee-cist.github.io/TIGR/data.html</loc>
-    <lastmod>2023-07-26T08:49:25.039Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ee-cist.github.io/TIGR/modules/import.html</loc>
-    <lastmod>2023-07-26T08:49:25.471Z</lastmod>
+    <lastmod>2023-07-27T12:19:00.905Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/statistique/statistique_uni.html</loc>
-    <lastmod>2023-07-26T08:49:31.123Z</lastmod>
+    <lastmod>2023-07-27T12:19:00.181Z</lastmod>
   </url>
   <url>
-    <loc>https://ee-cist.github.io/TIGR/modules/statistique/statistique_multi.html</loc>
-    <lastmod>2023-07-26T08:49:31.727Z</lastmod>
+    <loc>https://ee-cist.github.io/TIGR/modules/import.html</loc>
+    <lastmod>2023-07-27T12:18:45.809Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ee-cist.github.io/TIGR/data.html</loc>
+    <lastmod>2023-07-27T12:18:45.321Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ee-cist.github.io/TIGR/modules/statistique/CAH.html</loc>
+    <lastmod>2023-07-27T12:18:59.277Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ee-cist.github.io/TIGR/modules/statistique/statistique_bi.html</loc>
+    <lastmod>2023-07-27T12:19:00.493Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/cartographie.html</loc>
-    <lastmod>2023-07-26T08:49:32.491Z</lastmod>
+    <lastmod>2023-07-27T12:19:01.257Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/reproductibilite.html</loc>
-    <lastmod>2023-07-26T08:49:35.031Z</lastmod>
+    <lastmod>2023-07-27T12:19:04.109Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/graphique/Rbase_graph.html</loc>
-    <lastmod>2023-07-26T08:49:44.695Z</lastmod>
+    <lastmod>2023-07-27T12:19:14.425Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/manipulation/manipulation.html</loc>
-    <lastmod>2023-07-26T08:49:50.747Z</lastmod>
+    <lastmod>2023-07-27T12:19:20.545Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/reseau/igraph.html</loc>
-    <lastmod>2023-07-26T08:49:52.571Z</lastmod>
+    <lastmod>2023-07-27T12:19:22.425Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/graphique.html</loc>
-    <lastmod>2023-07-26T09:47:14.013Z</lastmod>
+    <lastmod>2023-07-27T12:19:23.669Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/import/scraping.html</loc>
-    <lastmod>2023-07-26T08:50:00.463Z</lastmod>
+    <lastmod>2023-07-27T12:19:30.333Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/reproductibilite/minicran.html</loc>
-    <lastmod>2023-07-26T08:50:04.219Z</lastmod>
+    <lastmod>2023-07-27T12:19:34.245Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/geomatique/OpenStreetMap.html</loc>
-    <lastmod>2023-07-26T08:50:07.191Z</lastmod>
+    <lastmod>2023-07-27T12:19:37.161Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/geomatique/geomatic_raster.html</loc>
-    <lastmod>2023-07-26T08:50:09.231Z</lastmod>
+    <lastmod>2023-07-27T12:19:39.013Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/WIP/osm.html</loc>
-    <lastmod>2023-07-26T08:50:10.451Z</lastmod>
+    <lastmod>2023-07-27T12:19:40.181Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/WIP/renv.html</loc>
-    <lastmod>2023-07-26T08:50:11.111Z</lastmod>
+    <lastmod>2023-07-27T12:19:40.789Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/modules/WIP/datatable.html</loc>
-    <lastmod>2023-07-26T08:50:11.747Z</lastmod>
+    <lastmod>2023-07-27T12:19:41.405Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/ressources.html</loc>
-    <lastmod>2023-07-26T08:50:12.415Z</lastmod>
+    <lastmod>2023-07-27T12:19:42.025Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/about.html</loc>
-    <lastmod>2023-07-26T08:50:13.331Z</lastmod>
+    <lastmod>2023-07-27T12:19:42.889Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/presentation.html</loc>
-    <lastmod>2023-07-26T08:50:14.975Z</lastmod>
+    <lastmod>2023-07-27T12:19:44.381Z</lastmod>
   </url>
   <url>
     <loc>https://ee-cist.github.io/TIGR/correction/ggplot2/Correction_ggplot.html</loc>
-    <lastmod>2023-07-26T08:50:28.523Z</lastmod>
+    <lastmod>2023-07-27T12:19:57.385Z</lastmod>
   </url>
 </urlset>

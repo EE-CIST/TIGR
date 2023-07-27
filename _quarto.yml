@@ -64,7 +64,7 @@ website:
           # - href: modules/statistique/statistique_bi.qmd
           #   text: Bivariée
           - href: modules/statistique/CAH.qmd
-            text: Classification AH
+            text: Classif. Asc. Hiérarch.
           
           
       - section: "**Graphique**"
