@@ -25,6 +25,8 @@ Cette leçon vise à initier à la gestion, l'analyse et la représentation de d
 -   Sélection spatiale
 -   Opération sur les géométries
 
+\
+
 ## <i class="bi bi-book"></i> Manuel {.title}
 
 <iframe class="slide" src="https://elementr.gitpages.huma-num.fr/session_geomatique/tutoriel/">

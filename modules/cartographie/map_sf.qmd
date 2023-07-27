@@ -26,6 +26,8 @@ Cette leçon vise à initier à l'utilisation du package `mapsf` pour la constru
 
 La construction de cartogramme (ou anamorphose) à l'aide du package `cartogram` est également abordé en fin de leçon.
 
+\
+
 ## <i class="bi bi-book"></i> Manuel {.title}
 
 <iframe class="slide" src="https://rcarto.github.io/cartographie_avec_r/">
@@ -43,7 +45,7 @@ La construction de cartogramme (ou anamorphose) à l'aide du package `cartogram`
 
 ::: callout-note
 
-Ce support de ce cours est très largement inspiré du manuel “[*https://rcarto.github.io/cartographie_avec_r/*](https://rcarto.github.io/geomatique_avec_r/)”, plus complet et initialement conçu pour accompagner le cours *'Cartographie avec R'* du Master 2 Géomatique, géodécisionnel, géomarketing et multimédia (G2M) de l'Université Paris 8 Vincennes - Saint-Denis (France). Ce manuel, qui présente en détail le fonctionnement et l’utilisation du package mapsf, se complète avec le manuel “[*Géomatique avec R*](https://rcarto.github.io/geomatique_avec_r/)”, qui présente la manipulation de données géographiques avec R.
+Ce support de ce cours est très largement inspiré du manuel “[*Cartographie avec R*](https://rcarto.github.io/cartographie_avec_r/)”, plus complet et initialement conçu pour accompagner le cours *'Cartographie avec R'* du Master 2 Géomatique, géodécisionnel, géomarketing et multimédia (G2M) de l'Université Paris 8 Vincennes - Saint-Denis (France). Ce manuel, qui présente en détail le fonctionnement et l’utilisation du package `mapsf`, se complète avec le manuel “[*Géomatique avec R*](https://rcarto.github.io/geomatique_avec_r/)”, qui présente la manipulation de données géographiques avec R.
 
 :::
 
