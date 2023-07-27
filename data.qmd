@@ -30,12 +30,12 @@ metadata <- read.csv2(file = "data/DEV_AFRICA_2018/afrika_don_meta.csv")
 metadata$Type <- sapply(data, class)
 metadata <- metadata[, c(1,2,4,3)]
 
-
 library(DT)
-datatable(metadata , options = list(
-  pageLength = 5, autoWidth = TRUE
-))
-
+library(kableExtra)
+metadata %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+  scroll_box(height = "200px")
 
 ```
 
@@ -45,9 +45,10 @@ datatable(metadata , options = list(
 
 ```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
 
-datatable(data ,  options = list(
-  pageLength =5, autoWidth = TRUE
-))
+data %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+  scroll_box(height = "400px")
 
 ```
 
@@ -71,19 +72,16 @@ library(sf)
 pays_afrique <- st_read("data/GADM_AFRICA_2020/afrika_map.shp",  quiet = TRUE)
 
 # install.packages("DT")
-library(DT)
-datatable(pays_afrique ,  options = list(
-  pageLength =5, autoWidth = TRUE
-))
-
+pays_afrique  %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+  scroll_box(height = "400px")
 
 ```
 
 #### Affichage de géométrie :
 
 ```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE, message=FALSE}
-
-
 
 library(mapview)
 mapview(pays_afrique, zcol = "subregion")
@@ -110,10 +108,10 @@ Extraction (**Ghana, Bénin et Togo**) de la base de données géographique [AFR
 africapolis_extract <- st_read("data/AFRICAPOLIS_2020/africapolis_extract.shp",  quiet = TRUE)
 
 # install.packages("DT")
-library(DT)
-datatable(africapolis_extract,  options = list(
-  pageLength =5, autoWidth = TRUE
-))
+africapolis_extract  %>% 
+  kable %>%
+  kable_styling("striped", full_width = F) %>% 
+  scroll_box(height = "400px")
 
 
 ```
