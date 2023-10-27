@@ -17,7 +17,7 @@ subtitle: "Quelques ressources supplémentaires pour complèter TIG'R"
 
 <i class="bi bi-book"></i> [**Geocomputation with R**](https://geocompr.robinlovelace.net/) : Ouvrage (en anglais mais le plus complet) sur la géographie computationnelle avec R, R. Lovelace, J. Nowosad et J. Muenchow.
 
-<i class="bi bi-book"></i> [**Géomatique avec R**](https://rcarto.github.io/geomatique_avec_r/) : Manuel pour la gestion et le traitements de données spatiales, T. giraud & H. Pecout.
+<i class="bi bi-book"></i> [**Géomatique avec R**](https://rcarto.github.io/geomatique_avec_r/) : Manuel pour la gestion et le traitements de données spatiales, T. Giraud & H. Pecout.
 
 <i class="bi bi-book"></i> [**guide-R**](https://larmarange.github.io/guide-R/) : Guide pour l'analyse de données d'enquêtes avec R (version actualisée et restructurée de nombreux chapitres d'analyse-R).
 
@@ -29,8 +29,4 @@ subtitle: "Quelques ressources supplémentaires pour complèter TIG'R"
 
 <i class="bi bi-diagram-2"></i> [**UtilitR**](https://www.utilitr.org/) : Documentation collaborative et open source sur R, destinée en premier lieu aux agents de l'INSEE.
 
-
 **Des centaines de ressources diverses et gratuites (livres, articles, agrégateurs, cours, exercices, sites web, vidéos...) pour la pratique de R en sciences humaines et sociale sont référencées sur le site internet** [**rzine.fr**](https://rzine.fr/publication/).
-
-
-
