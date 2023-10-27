@@ -17,7 +17,7 @@ format:
 
 ## Introduction
 
-Cette leçon a pour objectif d'introduire à la manipulation de réseau avec le package `igraph`.Elle s'adresse aux utilisateur·rices R maîtrisant les manipulations de base des objets R. Un minimum de connaissance en matière de théorie de graphe est également requis.
+Cette leçon a pour objectif d'introduire à la manipulation de réseau avec le package `igraph`. Elle s'adresse aux utilisateur·rices R maîtrisant les manipulations de base des objets R. Un minimum de connaissance en matière de théorie de graphe est également requis.
 
 Plan du cours :
 
