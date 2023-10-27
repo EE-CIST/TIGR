@@ -7,7 +7,7 @@
     ]
   },
   {
-    "listing": "/modules/network.html",
+    "listing": "/modules/reseau.html",
     "items": [
       "/modules/reseau/igraph.html"
     ]
@@ -31,47 +31,6 @@
       "/modules/geomatique/geomatic_vector.html",
       "/modules/geomatique/geomatic_raster.html",
       "/modules/geomatique/OpenStreetMap.html"
-    ]
-  },
-  {
-    "listing": "/modules/reseau.html",
-    "items": [
-      "/modules/reseau/igraph.html"
-    ]
-  },
-  {
-    "listing": "/modules/import.html",
-    "items": [
-      "/modules/import/import.html",
-      "/modules/import/scraping.html"
-    ]
-  },
-  {
-    "listing": "/modules/manipulation.html",
-    "items": [
-      "/modules/manipulation/manipulation.html",
-      "/modules/manipulation/tidyverse.html"
-    ]
-  },
-  {
-    "listing": "/modules/statistique.html",
-    "items": [
-      "/modules/statistique/CAH.html",
-      "/modules/statistique/statistique_uni.html",
-      "/modules/statistique/statistique_bi.html"
-    ]
-  },
-  {
-    "listing": "/modules/graphique.html",
-    "items": [
-      "/modules/graphique/Rbase_graph.html",
-      "/modules/graphique/ggplot2.html"
-    ]
-  },
-  {
-    "listing": "/modules/cartographie.html",
-    "items": [
-      "/modules/cartographie/map_sf.html"
     ]
   }
 ]
