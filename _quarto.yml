@@ -26,8 +26,8 @@ website:
 
       - section: "**Import de données**"
         contents:
-          # - href: modules/import.qmd
-          #   text: Toutes les leçons
+          - href: modules/import.qmd
+            text: Toutes les leçons
           - href: modules/import/import.qmd
             text: Import & export
           - href: modules/import/scraping.qmd
@@ -43,8 +43,8 @@ website:
             
       - section: "**Manipulation**"
         contents:
-          # - href: modules/manipulation.qmd
-          #   text: Toutes les leçons
+          - href: modules/manipulation.qmd
+            text: Toutes les leçons
           - href: modules/manipulation/manipulation.qmd
             text: Manipulation de tableau
           - href: modules/manipulation/tidyverse.qmd
@@ -57,24 +57,28 @@ website:
 
       - section: "**Statistique**"
         contents:
-          # - href: modules/statistique.qmd
-          #   text: Toutes les leçons
+          - href: modules/statistique.qmd
+            text: Toutes les leçons
           # - href: modules/statistique/statistique_uni.qmd
           #   text: Univariée
           # - href: modules/statistique/statistique_bi.qmd
           #   text: Bivariée
+          - href: modules/statistique/statistique_descriptive.qmd
+            text: Statistique Descriptive      
           - href: modules/statistique/CAH.qmd
             text: Classif. Asc. Hiérarch.
           
           
       - section: "**Graphique**"
         contents:
-          # - href: modules/graphique.qmd
-          #   text: Toutes les leçons
+          - href: modules/graphique.qmd
+            text: Toutes les leçons
           - href: modules/graphique/Rbase_graph.qmd
             text: Graphique R-base
           - href: modules/graphique/ggplot2.qmd
             text: Le package `ggplot2`
+          - href: modules/graphique/ggplot2_GG.qmd
+            text: ggplot2 et la grammaire graphique
             
       - section: "**Réseau**"
         contents:
@@ -86,8 +90,8 @@ website:
           
       - section: "**Géomatique**"
         contents:
-          # - href: modules/geomatique.qmd
-          #   text: Toutes les leçons
+          - href: modules/geomatique.qmd
+            text: Toutes les leçons
           - href: modules/geomatique/geomatic_vector.qmd
             text: Données vectorielles
           - href: modules/geomatique/geomatic_raster.qmd
@@ -107,17 +111,18 @@ website:
           
       - section: "**Reproductibilité**"
         contents:
-          # - href: modules/reproductibilite.qmd
-          #   text: Toutes les leçons
+          - href: modules/reproductibilite.qmd
+            text: Toutes les leçons
           - href: modules/reproductibilite/minicran.qmd
             text: Le package `miniCRAN`
           # - href: modules/reproductibilite/renv.qmd
           #   text: Le package `renv`
           - href: modules/reproductibilite/programmation_lettree.qmd
-            text: PL et Notebook
-          # - href: modules/reproductibilite/notebook.qmd
-          #   text: Les notebooks  
-
+            text: PL et Notebook (Rmd)
+          - href: modules/reproductibilite/programmation_lettree_quarto.qmd
+            text: PL et Notebook (Quarto)
+          
+          
             
       - text: "---"
       

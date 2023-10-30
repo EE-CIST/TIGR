@@ -5,7 +5,7 @@ author:
 - Hugues pecout
 - Justin Dansou
 date: last-modified
-ordre: 01
+ordre: 02
 code-fold: true
 code-tools: true
 format:
@@ -101,7 +101,7 @@ La ressemblance des individus est évaluée par la distance mathématique entre 
 
 **Calcul d'une matrice de distance pour des variables quantitatives.**
 
-La fonction `dist()` permet dans calculer plusieurs distances mathématiques (euclidiennes, Maximum, Manhattan, Canberra...) pour les variables quantitatives 
+La fonction `dist()` permet dans calculer plusieurs distances mathématiques (euclidiennes, Maximum, Manhattan, Canberra...) pour les variables quantitatives
 
 ```{r, eval=TRUE}
 #| code-fold: FALSE
@@ -151,13 +151,13 @@ md_gower <- daisy(data_clean, metric = "gower")
 
 ## 2. Regroupement Hiérarchique
 
-Il faut ensuite choisir une méthode d'agrégation pour construire le dendrogramme. De nombreuses solutions existent (*single linkage*, *average linkage*, *ward linkage*...). Les différentes méthodes de regroupement hiérarchique utilisent des critères différents pour évaluer la distance entre les groupes et peuvent donner des résultats (dendogramme) légèrement différents en termes de structure des clusters formés. 
+Il faut ensuite choisir une méthode d'agrégation pour construire le dendrogramme. De nombreuses solutions existent (*single linkage*, *average linkage*, *ward linkage*...). Les différentes méthodes de regroupement hiérarchique utilisent des critères différents pour évaluer la distance entre les groupes et peuvent donner des résultats (dendogramme) légèrement différents en termes de structure des clusters formés.
 
 Par exemple, la méthode *complete linkage* (liaison complète) est une des techniques couramment utilisées pour réaliser le regroupement hiérarchique lors de la CAH. Cette méthode consiste à calculer la distance entre deux groupes de données en se basant sur les distances maximales entre tous les points des deux groupes. Concrètement, lors du regroupement hiérarchique, la distance entre deux groupes est déterminée en trouvant la distance maximale entre les points de chaque groupe. Ainsi, la distance entre deux groupes est définie par la paire d'observations qui sont les plus éloignées l'une de l'autre parmi toutes les paires possibles d'observations entre les deux groupes. Cette approche est souvent utilisée lorsque l'on souhaite privilégier la formation de clusters compacts et bien séparés les uns des autres, car la distance choisie est la plus grande possible entre les groupes. Elle peut être utile lorsque l'on s'intéresse à des sous-groupes distincts et bien définis dans les données.
 
 La fonction R-base pour le calcul d'un dendrogramme à partir d'une matrice de distances est `hclust()`. La méthode d'aggrégation souhaitée peut être précisé avec l'argument `method`. Quelques exemple d'application :
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Variables quantitatives
 
 Aggrégation des individus par la méthode de *Ward* appliquée au carré des distances ("ward.D2")
@@ -195,7 +195,6 @@ plot(hc_chi2_complete, main = "Distance chi2 + Méthode de liasion complète")
 
 Aggrégation des individus par la méthode de liason moyenne ("average")
 
-
 ```{r}
 #| code-fold: FALSE
 hc_gower_average <- hclust(md_gower, method = "average")
@@ -207,10 +206,9 @@ Visualisation du dendogramme (arbre de classification) avec la fonction `plot()`
 #| code-fold: FALSE
 plot(hc_gower_average, main = "Distance de Gower + Méthode de liaison moyenne")
 ```
+:::
 
-::: 
-
-:::{.callout-important}
+::: callout-important
 En fonction de vos données et de vos objectifs, vous pouvez réaliser plusieurs dendrogramme différents jusqu'à obtenir une classification qui fait « sens ».
 :::
 
@@ -220,18 +218,16 @@ En fonction de vos données et de vos objectifs, vous pouvez réaliser plusieurs
 
 Il ne reste plus qu'à découper le dendrogramme obtenu à une certaine hauteur pour obtenir une partition des individus. La qualité d'une partition se traduit mathématiquement par une petite variabilité intra-classe et une grande variabilité inter-classes. La forme et les sauts d'inertie du dendogramme permettent d'apprécier l'évolution de ces variabilités en fonction du nombre de partitions. Par exemple :
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Forme de l'arbre
 
-L'analyse de la forme du dendogramme fournit des indications sur le nombre de classes à retenir. Deux branches bien distinctes apparaissent sur l’arbre. Ces deux branches se subdivisent ensuite en 4 sous-groupes. Les partitions suivantes semblent beaucoup moins marquées. 
+L'analyse de la forme du dendogramme fournit des indications sur le nombre de classes à retenir. Deux branches bien distinctes apparaissent sur l'arbre. Ces deux branches se subdivisent ensuite en 4 sous-groupes. Les partitions suivantes semblent beaucoup moins marquées.
 
 ```{r}
 #| code-fold: FALSE
 #| echo: FALSE
 plot(hc_eucli_ward2, main = "Distance euclidienne + Méthode de Ward2")
 ```
-
-
 
 ## Sauts d'inertie
 
@@ -249,7 +245,6 @@ inertie <- sort(hc_eucli_ward2$height, decreasing = TRUE)
 plot(inertie[1:13], type = "s", xlab = "Nombre de classes", ylab = "Inertie")
 
 ```
-
 :::
 
 La fonction `rect.hclust()` permet de visualiser les différentes partitions directement sur le dendrogramme.
@@ -279,8 +274,6 @@ var_quanti$CLASSE <- classes
 
 ```
 
-
-
 ```{r}
 #| code-fold: FALSE
 #| echo: FALSE
@@ -295,7 +288,6 @@ var_quanti %>%
 \
 
 ## 4. Caractérisation & représentation
-
 
 Dans l'objectif de caractèriser et de nommer les différentes classes détéctées, il peut être intérressant de faire un résumé statistique de chaque variable pour toutes les classes. Le package `gtsummary` et sa fonction `tbl_summary` est parfaite pour cela.
 
@@ -379,8 +371,7 @@ ggplot(Profil_classe_lg) +
 
 ### Cartographie
 
-Si vous souhaitez cartographier les résultat, vous pouvez utiliser le package `mapsf`. Commencez par importer un fond de carte, puis réalisez une jointure avec le tableau de données final contenant les classes d'appartenances. 
-
+Si vous souhaitez cartographier les résultat, vous pouvez utiliser le package `mapsf`. Commencez par importer un fond de carte, puis réalisez une jointure avec le tableau de données final contenant les classes d'appartenances.
 
 ```{r, warning=FALSE, message=FALSE}
 #| code-fold: FALSE
@@ -426,7 +417,7 @@ mf_layout(
 [2. Téléchargez les données suivantes :]{.question}
 
 |             Intitulé              |                                                                     Téléchargement                                                                      |
-|:----------------:|:----------------------------------------------------:|
+|:-----------------:|:---------------------------------------------------:|
 | Données pays africains (UN-CEPII) | <a href="https://bit.ly/3DaCAkX" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
 | Fond de carte Afrique (GADM 2020) | <a href="https://bit.ly/3DaAUb2" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
 
@@ -457,7 +448,6 @@ st_read()
 
 ```
 
-
 [5. Explorez les potentielles corrélations entre les différentes variables quantitatives du tableau "afrika_don"]{.question}
 
 Pour cela, utilisez la représentation graphique en nuage de point et le calul de coefficient de corrélation. Quelle(s) variable(s) pourraient-on exclure de la CAH ?
@@ -478,13 +468,11 @@ cor_test()
 
 ```
 
-
 [5. Préparez le tabmeau de données pour réalisez un CAH.]{.question}
 
-1. Assignez les valeurs de la variable "iso3" comme noms des lignes du tableau 
+1.  Assignez les valeurs de la variable "iso3" comme noms des lignes du tableau
 
-2. Sélectionnez uniquement les 10 variables suivantes :"POP", "PIB", "ADOFEC", "EMPAGR", "INTERN", "ESPVIE", "TXMIGR", "DVIEUX", "TUBERC", "URBANI"  
-
+2.  Sélectionnez uniquement les 10 variables suivantes :"POP", "PIB", "ADOFEC", "EMPAGR", "INTERN", "ESPVIE", "TXMIGR", "DVIEUX", "TUBERC", "URBANI"
 
 ```{r warning = FALSE, message = FALSE , eval = FALSE}
 #| code-summary: "Un peu d'aide ?"
@@ -497,9 +485,7 @@ New_tab <- tableau[ , ... ]
 
 ```
 
-
 [6. Calculez une matrice de distance euclidienne entre toutes les variables.]{.question}
-
 
 ```{r warning = FALSE, message = FALSE , eval = FALSE}
 #| code-summary: "Un peu d'aide ?"
@@ -507,7 +493,6 @@ New_tab <- tableau[ , ... ]
 dist()
 
 ```
-
 
 [7. Réalisez un regroupement hiérarchique avec la méthode "ward.d2" puis affichez le dendogramme]{.question}
 
@@ -524,7 +509,7 @@ plot()
 
 [7. Representez l'inertie intra-classe en fonction du partitionnement de l'arbre]{.question}
 
-A quelle hauteur pouvons nous découper le dendogramme ? Combien de classes bien disctinctes pouvons-vous créer ? 
+A quelle hauteur pouvons nous découper le dendogramme ? Combien de classes bien disctinctes pouvons-vous créer ?
 
 ```{r warning = FALSE, message = FALSE , eval = FALSE}
 #| code-summary: "Un peu d'aide ?"
@@ -539,7 +524,6 @@ plot(...)
 
 [8. Découpez le dendogramme en 3 classes et assignez le résultat de la classification dans une nouvelle colonne du tableau de données]{.question}
 
-
 ```{r warning = FALSE, message = FALSE , eval = FALSE}
 #| code-summary: "Un peu d'aide ?"
 
@@ -547,7 +531,6 @@ plot(...)
 ...$... <- cutree()
 
 ```
-
 
 [9. Cartographiez le résultat]{.question}
 
@@ -563,10 +546,6 @@ mf_map()
 mf_layout()
 
 ```
-
-
-
-
 
 ------------------------------------------------------------------------
 

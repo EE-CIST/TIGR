@@ -1,0 +1,43 @@
+---
+title: "Programmation lettrée et notebook Quarto"
+subtitle: "Introduction et mise en pratique avec Quarto"
+ordre: 02
+author: Hugues Pecout
+date: last-modified
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   colorlinks: true
+  #   output-file: "miniCRAN"
+  #   output-ext:  "pdf"
+---
+
+::: {.callout-note}
+Ce cours a été élaboré dans le cadre d'une [séance de formation](https://elementr.netlify.app/posts/seance8_quarto) organisée par le groupe d'utilisateur·rices [**ElementR**](https://elementr.netlify.app/). 
+:::
+
+\
+
+## Introduction
+
+Présentation du paradigme de programmation lettrée et du format de publication *notebook*, qui offre de nombreuses fonctionnalités pour de nombreux usages. Puis, exercices de mise en pratique :    
+1. Premiers pas avec Rmarkdown           
+2. Mon premier document Quarto (format livre)      
+
+## <i class="bi bi-book"></i> Support & exercices {.title}
+ 
+<iframe class="slide2" src="https://elementr.gitpages.huma-num.fr/session_notebook/programmation_lettree/#/title-slide">
+
+</iframe>
+
+→ Consulter en [plein écran](https://elementr.gitpages.huma-num.fr/session_notebook/programmation_lettree/#/title-slide)\
+→ Accéder au [code source](https://gitlab.huma-num.fr/elementr/session_notebook/programmation_lettree)\
+<!-- → Télécharger en [pdf]()\ -->
+
+\

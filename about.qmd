@@ -13,27 +13,22 @@ TIG'R a été initié en 2023 par Hugues pecout et Julien Dansou dans le cadre d
 ::: center
 **Liste des contributeurs**, par ordre alphabétique :
 
-Laurent Beauguitte  
-Alexandre Cebeillac   
-Léa Christophe   
-Robin Cura  
-Julien Dansou   
-Mégane Fernandez   
-Timothée Giraud   
-Hugues Pecout   
-Sébastien Rey-Coyrehourcq   
+Laurent Beauguitte\
+Alexandre Cebeillac\
+Léa Christophe\
+Robin Cura\
+Justin Dansou\
+Mégane Fernandez\
+Timothée Giraud\
+Hugues Pecout\
+Sébastien Rey-Coyrehourcq
 :::
-
-
-
 
 \
 
-
-
 ### Conditions d'utilisation
 
-Le contenu de ce site web (support de cours et exercice inclus) est soumis à la [Licence ouverte V2.0 d'Etalab](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).   
+Le contenu de ce site web (support de cours et exercice inclus) est soumis à la [Licence ouverte V2.0 d'Etalab](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).\
 Le « réutilisateur » est **libre de réutiliser l' « information »** :
 
 -   de la reproduire, la copier,\

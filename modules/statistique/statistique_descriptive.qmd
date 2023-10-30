@@ -1,0 +1,41 @@
+---
+title: "Statistique descriptive uni et bivariée"
+subtitle: "Initiation à la statistique descriptive en géographie"
+author: 
+- Hugues pecout
+- Timothée Giraud
+date: last-modified
+ordre: 01
+code-fold: true
+code-tools: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    embed-resources: TRUE
+---
+
+::: {.callout-note}
+Ce cours a été élaboré dans le cadre du [Master Géomatique, Géodécisionnel, Géomarketing et Multimédia](https://www.univ-paris8.fr/-Master-Geomatique-Geodecisionnel-Geomarketing-et-Multimedia-G2M-) de l'université Paris 8 Vincennes-Saint-Denis. 
+:::
+
+\
+
+**Objectifs de ce cours :**
+
+1. Acquérir les bases du logiciel/langage R et de son environnement RStudio.   
+2. Réviser les bases de la statistique descriptive univariée et bivariée en géographie.   
+3. Comprendre les atouts de R pour la gestion, l’analyse et la représentation de données. 
+
+## <i class="bi bi-book"></i> Support & exercices {.title}
+ 
+<iframe class="slide2" src="https://huguespecout.github.io/Initiation_R_stats/#content">
+
+</iframe>
+
+→ Consulter en [plein écran](https://huguespecout.github.io/Initiation_R_stats/#content)\
+→ Accéder au [code source](https://github.com/HuguesPecout/Initiation_R_stats)\
+<!-- → Télécharger en [pdf]()\ -->
+
+\
+

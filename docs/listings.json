@@ -1,18 +1,5 @@
 [
   {
-    "listing": "/modules/reproductibilite.html",
-    "items": [
-      "/modules/reproductibilite/minicran.html",
-      "/modules/reproductibilite/programmation_lettree.html"
-    ]
-  },
-  {
-    "listing": "/modules/reseau.html",
-    "items": [
-      "/modules/reseau/igraph.html"
-    ]
-  },
-  {
     "listing": "/modules.html",
     "items": [
       "/modules/import.html",
@@ -26,11 +13,60 @@
     ]
   },
   {
+    "listing": "/modules/reseau.html",
+    "items": [
+      "/modules/reseau/igraph.html"
+    ]
+  },
+  {
+    "listing": "/modules/graphique.html",
+    "items": [
+      "/modules/graphique/Rbase_graph.html",
+      "/modules/graphique/ggplot2.html",
+      "/modules/graphique/ggplot2_GG.html"
+    ]
+  },
+  {
     "listing": "/modules/geomatique.html",
     "items": [
       "/modules/geomatique/geomatic_vector.html",
       "/modules/geomatique/geomatic_raster.html",
       "/modules/geomatique/OpenStreetMap.html"
+    ]
+  },
+  {
+    "listing": "/modules/import.html",
+    "items": [
+      "/modules/import/import.html",
+      "/modules/import/scraping.html"
+    ]
+  },
+  {
+    "listing": "/modules/cartographie.html",
+    "items": [
+      "/modules/cartographie/map_sf.html"
+    ]
+  },
+  {
+    "listing": "/modules/reproductibilite.html",
+    "items": [
+      "/modules/reproductibilite/minicran.html",
+      "/modules/reproductibilite/programmation_lettree.html",
+      "/modules/reproductibilite/programmation_lettree_quarto.html"
+    ]
+  },
+  {
+    "listing": "/modules/statistique.html",
+    "items": [
+      "/modules/statistique/statistique_descriptive.html",
+      "/modules/statistique/CAH.html"
+    ]
+  },
+  {
+    "listing": "/modules/manipulation.html",
+    "items": [
+      "/modules/manipulation/manipulation.html",
+      "/modules/manipulation/tidyverse.html"
     ]
   }
 ]

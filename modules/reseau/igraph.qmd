@@ -15,6 +15,12 @@ format:
     code-copy: true
 ---
 
+::: {.callout-note}
+Ce cours a été élaboré dans le cadre d'une [séance de formation](https://elementr.netlify.app/posts/seance7_igrap) organisée par le groupe d'utilisateur·rices [**ElementR**](https://elementr.netlify.app/). 
+:::
+
+\
+
 ## Introduction
 
 Cette leçon a pour objectif d'introduire à la manipulation de réseau avec le package `igraph`. Elle s'adresse aux utilisateur·rices R maîtrisant les manipulations de base des objets R. Un minimum de connaissance en matière de théorie de graphe est également requis.
@@ -29,7 +35,7 @@ Plan du cours :
 -   Représentation graphique\
 -   Exercice
 
-\
+
 
 ## <i class="bi bi-book"></i> Manuel & exercice {.title}
 

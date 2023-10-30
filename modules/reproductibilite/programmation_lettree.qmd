@@ -1,6 +1,6 @@
 ---
-title: "Programmation lettrée et notebook"
-subtitle: "Introduction et mise en pratique avec Rmarkdown et Quarto"
+title: "Programmation lettrée et notebook Rmarkdown"
+subtitle: "Introduction et mise en pratique avec Rmarkdown"
 ordre: 02
 author: Hugues Pecout
 date: last-modified
@@ -42,15 +42,3 @@ Présentation du paradigme de programmation lettrée et du format de publication
 
 \
 
-
-## PL, Rmarkdown... Et Quarto !
-
-<iframe class="slide2" src="https://elementr.gitpages.huma-num.fr/session_notebook/programmation_lettree/#/title-slide">
-
-</iframe>
-
-→ Consulter en [plein écran](https://elementr.gitpages.huma-num.fr/session_notebook/programmation_lettree/#/title-slide)\
-→ Accéder au [code source](https://gitlab.huma-num.fr/elementr/session_notebook/programmation_lettree)\
-<!-- → Télécharger en [pdf]()\ -->
-
-\
