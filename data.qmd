@@ -41,6 +41,7 @@ metadata %>%
 
 \
 
+
 #### Affichage de données :
 
 ```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
