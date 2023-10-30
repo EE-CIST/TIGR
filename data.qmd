@@ -26,7 +26,7 @@ Ce tableau de données comporte 26 variables décrivant 49 pays.
 ```{r echo = FALSE, include = TRUE, eval = TRUE, warning= FALSE}
 install.packages("DT")
 install.packages("kableExtra")
-
+install.packages("mapview")
 
 data <- read.csv2(file = "data/DEV_AFRICA_2018/afrika_don.csv")
 metadata <- read.csv2(file = "data/DEV_AFRICA_2018/afrika_don_meta.csv")
