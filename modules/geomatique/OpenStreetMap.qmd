@@ -26,14 +26,14 @@ Cette leçon vise à introduire différents types d'exploitation de la **base de
 
 ## <i class="bi bi-book"></i> Manuel {.title}
 
-<iframe class="slide" src="https://rcarto.github.io/geomatique_avec_r/osm.html">
+<iframe class="slide" src="https://rcarto.github.io/geomatique_avec_r/15_OSM.html">
 
 </iframe>
 
 \
 
 ::: center
-<a href="https://rcarto.github.io/geomatique_avec_r/osm.html" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-eye"></i> Consulter en plein écran</a>
+<a href="https://rcarto.github.io/geomatique_avec_r/15_OSM.html" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-eye"></i> Consulter en plein écran</a>
 :::
 
 \
@@ -90,7 +90,7 @@ mapview(...)
 [5. Téléchargez les données suivantes :]{.question}
 
 |                        Intitulé                        |                                                                     Téléchargement                                                                      |
-|:------------------:|:--------------------------------------------------:|
+|:-------------------:|:-------------------------------------------------:|
 | Emprise des agglomérations urbaines (AFRICAPOLIS 2020) | <a href="https://bit.ly/3wnQKeG" class="btn btn-outline-warning" role="button" aria-disabled="true"><i class="bi bi-cloud-arrow-down"></i> Download</a> |
 
 [6. Placez les données décompressées dans le répertoire de votre projet, de la façon suivante :]{.question}

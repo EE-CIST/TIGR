@@ -26,14 +26,14 @@ Cette leçon vise à initier à la gestion, l'analyse et la représentation de d
 
 ## <i class="bi bi-book"></i> Manuel {.title}
 
-<iframe class="slide" src="https://rcarto.github.io/geomatique_avec_r/les-donn%C3%A9es-raster-le-package-terra.html">
+<iframe class="slide" src="https://rcarto.github.io/geomatique_avec_r/09_package_terra.html">
 
 </iframe>
 
 \
 
 ::: center
-<a href="https://rcarto.github.io/geomatique_avec_r/les-donn%C3%A9es-raster-le-package-terra.html" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-eye"></i> Consulter en plein écran</a>
+<a href="https://rcarto.github.io/geomatique_avec_r/09_package_terra.html" class="btn btn-info" role="button" aria-disabled="true"><i class="bi bi-eye"></i> Consulter en plein écran</a>
 :::
 
 \
